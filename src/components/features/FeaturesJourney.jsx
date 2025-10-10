@@ -5,7 +5,6 @@ const FeaturesJourney = () => {
   return (
     <section className="features-journey">
       <div className="journey-header">
-        <p className="journey-label">Navigate</p>
         <h2 className="journey-title">Your health journey simplified</h2>
         <p className="journey-subtitle">Unlock the power of your medical information</p>
       </div>

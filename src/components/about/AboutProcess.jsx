@@ -5,7 +5,7 @@ const AboutProcess = () => {
   return (
     <section className="about-process">
       <div className="process-header">
-        <p className="process-label">Decode</p>
+
         <h2 className="process-title">How your medical records become clear</h2>
         <p className="process-subtitle">Transforming complex health data into simple, actionable insights</p>
       </div>

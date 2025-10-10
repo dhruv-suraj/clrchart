@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import Features from './pages/Features';
 import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import Contact from './pages/Contact';
 import './App.css';
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/features" element={<Features />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />

@@ -19,6 +19,9 @@ const Navbar = () => {
       <Link to="/" className="logo">
         <img src={logo} alt="ClearChartAI" width="40" height="40" />
       </Link>
+      <Link to="/" className="logo-center">
+        ClearChartAI
+      </Link>
       <div className="nav-right">
         <button className="btn-primary">Try For Free</button>
         <button className={`menu-btn ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>

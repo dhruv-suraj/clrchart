@@ -6,7 +6,6 @@ const FeaturesClari = () => {
     <section className="features-clari">
       <div className="clari-container">
         <div className="clari-text">
-          <p className="clari-label">Clari</p>
           <h2 className="clari-title">Your health insights at the speed of thought</h2>
           <p className="clari-description">
             Medical complexity melts away with instant, precise answers. Knowledge becomes your most powerful health tool.

@@ -5,14 +5,12 @@ const Features = () => {
   return (
     <section className="features-section">
       <div className="features-header">
-        <p className="features-label">Clarity</p>
         <h2 className="features-title">Medical records made simple</h2>
         <p className="features-subtitle">Decode complex medical information with AI-powered insights</p>
       </div>
 
       <div className="features-content">
         <div className="features-left">
-          <p className="innovative-label">Innovative</p>
           <h3 className="features-heading">
             Understand Your Health.<br />
             Own Your Future.

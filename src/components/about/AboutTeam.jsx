@@ -37,7 +37,7 @@ const AboutTeam = () => {
   return (
     <section className="about-team">
       <div className="team-header">
-        <p className="team-label">Driven</p>
+
         <h2 className="team-title">Our team</h2>
         <p className="team-subtitle">Healthcare innovators transforming patient understanding</p>
       </div>

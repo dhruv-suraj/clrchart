@@ -6,7 +6,6 @@ const Impact = () => {
     <section className="impact-section">
       <div className="impact-container">
         <div className="impact-left">
-          <p className="impact-label">Impact</p>
           <h2 className="impact-title">Transforming patient understanding one record at a time</h2>
         </div>
 
