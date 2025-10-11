@@ -6,7 +6,6 @@ const FeaturesDetailed = () => {
     {
       number: '01',
       category: 'Patient empowerment',
-      label: 'Control',
       title: 'Take charge of your medical information',
       description: 'Understand your health journey with clear, accessible medical insights. No more confusion or complex medical language.',
       image: (
@@ -17,7 +16,6 @@ const FeaturesDetailed = () => {
     {
       number: '02',
       category: 'Time efficiency',
-      label: 'Streamline',
       title: 'Maximize your healthcare interactions',
       description: 'Prepare better questions for doctors and understand medical recommendations with unprecedented clarity.',
       image: (
@@ -61,7 +59,6 @@ const FeaturesDetailed = () => {
     {
       number: '03',
       category: 'Privacy protection',
-      label: 'Secure',
       title: 'Your medical data remains completely confidential',
       description: 'Built with HIPAA-ready infrastructure and advanced de-identification tools to protect your personal health information.',
       image: (
@@ -115,7 +112,6 @@ const FeaturesDetailed = () => {
                 <span className="detail-number">{feature.number}</span>
                 <span className="detail-category">{feature.category}</span>
               </div>
-              <p className="detail-label">{feature.label}</p>
               <h2 className="detail-title">{feature.title}</h2>
               <p className="detail-description">{feature.description}</p>
               <div className="detail-actions">

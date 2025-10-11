@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Features.css';
 
 const Features = () => {
@@ -18,7 +19,7 @@ const Features = () => {
           <p className="features-description">
             No more guessing about your health. ClearChartAI turns complex reports into answers you can trust and act on.
           </p>
-          <button className="btn-learn-more">Learn more</button>
+          <Link to="/about" className="btn-learn-more">Learn more</Link>
         </div>
 
         <div className="features-right">

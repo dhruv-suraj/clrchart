@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './CTA.css';
 import ctaImage from '../assets/ChatGPT Image Oct 4, 2025, 05_05_03 PM.png';
 
@@ -10,7 +11,7 @@ const CTA = () => {
         <p className="cta-description">Join our early access program and start decoding your medical records today</p>
         <div className="cta-buttons">
           <button className="btn-try-free">Try for Free</button>
-          <button className="btn-contact">Contact us</button>
+          <Link to="/contact" className="btn-contact">Contact us</Link>
         </div>
       </div>
 

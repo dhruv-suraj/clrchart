@@ -1,6 +1,7 @@
 import React from 'react';
 import './AboutTeam.css';
-import nicholasDavisImage from '../../assets/01 copy.png';
+import nicholasDavisImage from '../../assets/ChatGPT Image Oct 6, 2025, 04_42_46 PM.png';
+import dhruvSurajImage from '../../assets/ChatGPT Image Oct 4, 2025, 07_01_07 PM copy.png';
 import vishnuKoraganjiImage from '../../assets/vishnu-koraganji.png';
 
 const AboutTeam = () => {
@@ -18,7 +19,7 @@ const AboutTeam = () => {
       name: 'Dhruv Suraj',
       role: 'Lead AI engineer',
       description: 'Technical architect building intelligent systems that bridge medical complexity and patient comprehension',
-      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop',
+      image: dhruvSurajImage,
       linkedin: '#',
       twitter: '#',
       website: '#'

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Hero.css';
-import logo from '../assets/ClearChartAI color.png';
+import logoVideo from '../assets/EKG logo.mp4';
 
 const Hero = () => {
   return (
@@ -14,7 +14,16 @@ const Hero = () => {
           <button className="btn-secondary">Try Now</button>
         </div>
         <div className="hero-image">
-          <img src={logo} alt="ClearChartAI" style={{ width: '600px', height: '600px', transform: 'translateY(-50px)' }} />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{ width: '800px', height: '800px', transform: 'translateY(-50px)' }}
+          >
+            <source src={logoVideo} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </main>

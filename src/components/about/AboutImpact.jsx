@@ -62,7 +62,6 @@ const AboutImpact = () => {
   return (
     <section className="about-impact">
       <div className="about-impact-header">
-        <p className="about-impact-label">Impact</p>
         <h2 className="about-impact-title">Transforming healthcare for everyone</h2>
         <p className="about-impact-subtitle">Empowering health decisions through clear, actionable insights</p>
       </div>

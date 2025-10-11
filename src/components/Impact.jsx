@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Impact.css';
 
 const Impact = () => {
@@ -14,10 +15,7 @@ const Impact = () => {
             Our clinical pilot reveals the power of clear medical communication. Patients gain confidence. Doctors save time. Healthcare becomes more human.
           </p>
           <div className="impact-actions">
-            <button className="btn-explore">Explore</button>
-            <a href="#" className="link-learn">
-              Learn <span>→</span>
-            </a>
+            <Link to="/blog" className="btn-explore">Explore</Link>
           </div>
         </div>
       </div>

@@ -12,9 +12,6 @@ const AboutPartners = () => {
           </p>
           <div className="partners-actions">
             <button className="btn-partners">Partners</button>
-            <a href="#" className="link-partners">
-              Connect <span>→</span>
-            </a>
           </div>
         </div>
 

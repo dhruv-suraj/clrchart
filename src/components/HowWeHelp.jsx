@@ -8,7 +8,6 @@ const HowWeHelp = () => {
   return (
     <section className="how-we-help-section">
       <div className="how-we-help-header">
-        <p className="section-label">Features</p>
         <h2 className="section-title">How we help you</h2>
         <p className="section-subtitle">Powerful tools to make your medical information accessible</p>
       </div>

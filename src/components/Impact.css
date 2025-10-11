@@ -63,34 +63,13 @@
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    display: inline-block;
 }
 
 .btn-explore:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-}
-
-.link-learn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #000;
-    text-decoration: none;
-    transition: gap 0.3s ease;
-}
-
-.link-learn:hover {
-    gap: 0.8rem;
-}
-
-.link-learn span {
-    transition: transform 0.3s ease;
-}
-
-.link-learn:hover span {
-    transform: translateX(4px);
 }
 
 .stats-grid {

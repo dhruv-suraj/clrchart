@@ -6,7 +6,6 @@ const FeaturesUnified = () => {
     <section className="features-unified">
       <div className="unified-container">
         <div className="unified-text">
-          <p className="unified-label">Unified</p>
           <h2 className="unified-title">Your medical records, simplified and secure</h2>
           <p className="unified-description">
             We gather your scattered medical data with precision and care. Every record tells a story - we make sure you understand it.
