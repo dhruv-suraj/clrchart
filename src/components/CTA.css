@@ -11,6 +11,7 @@
     margin: 0 auto 4rem;
     position: relative;
     z-index: 2;
+    animation: fadeInUp 1s ease-out 0.2s both;
 }
 
 .cta-visual {
@@ -64,8 +65,13 @@
 
 .btn-try-free:hover {
     background: #6BC2C2;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(93, 196, 196, 0.4);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(93, 196, 196, 0.5);
+}
+
+.btn-try-free:active {
+    transform: translateY(-1px) scale(1);
+    box-shadow: 0 4px 15px rgba(93, 196, 196, 0.3);
 }
 
 .btn-contact {
@@ -84,8 +90,13 @@
 }
 
 .btn-contact:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.btn-contact:active {
+    transform: translateY(-1px) scale(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .cta-visual {
