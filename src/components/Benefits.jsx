@@ -1,12 +1,16 @@
 import React from 'react';
 import './Benefits.css';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 import benefitsImage from '../assets/ChatGPT Image Oct 4, 2025, 04_21_19 PM.png';
 
 const Benefits = () => {
+  const leftRef = useScrollAnimation({ threshold: 0.2 });
+  const rightRef = useScrollAnimation({ threshold: 0.2 });
+
   return (
     <section className="benefits-section">
       <div className="benefits-container">
-        <div className="benefits-left">
+        <div className="benefits-left slide-in-left" ref={leftRef}>
           <div className="benefit-item">
             <div className="benefit-icon">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +60,7 @@ const Benefits = () => {
           </div>
         </div>
 
-        <div className="benefits-right">
+        <div className="benefits-right slide-in-right" ref={rightRef}>
           <img
             src={benefitsImage}
             alt="Grandmother with grandchildren"

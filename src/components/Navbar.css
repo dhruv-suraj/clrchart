@@ -25,9 +25,36 @@
     transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
 }
 
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.logo img,
 .logo svg {
-    width: 40px;
-    height: 40px;
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    font-size: 1rem;
+}
+
+.nav-links a {
+    color: #0D6B65;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #1ca59c;
 }
 
 .logo-center {
@@ -64,10 +91,15 @@
     background: #0D6B65;
 }
 
+
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.25rem;
+}
+
+.nav-links-right a {
+    color: #0D6B65;
 }
 
 .btn-primary {
@@ -99,7 +131,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 5px;
     padding: 0.5rem;
@@ -188,6 +220,14 @@
 @media (max-width: 768px) {
     .navbar {
         padding: 1rem 1.5rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .menu-btn {
+        display: flex;
     }
 
     .btn-primary {

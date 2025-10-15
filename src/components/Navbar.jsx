@@ -27,13 +27,23 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-      <Link to="/" className="logo">
-        <img src={logo} alt="ClearChartAI" width="40" height="40" />
-      </Link>
+      <div className="nav-left">
+        <Link to="/" className="logo">
+          <img className="logo-img" src={logo} alt="ClearChartAI" />
+        </Link>
+        <div className="nav-links nav-links-left">
+          <Link to="/about">About</Link>
+          <Link to="/features">Features</Link>
+        </div>
+      </div>
       <Link to="/" className="logo-center">
         ClearChartAI
       </Link>
       <div className="nav-right">
+        <div className="nav-links nav-links-right">
+          <Link to="/blog">Blog</Link>
+          <Link to="/contact">Contact</Link>
+        </div>
         <Link to="/dashboard" className="btn-primary">Try For Free</Link>
         <button className={`menu-btn ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
           <span></span>
