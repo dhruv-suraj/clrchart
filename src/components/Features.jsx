@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Features.css';
 import useScrollAnimation from '../hooks/useScrollAnimation';
@@ -7,27 +7,57 @@ const Features = () => {
   const headerRef = useScrollAnimation({ threshold: 0.2 });
   const leftRef = useScrollAnimation({ threshold: 0.2 });
   const rightRef = useScrollAnimation({ threshold: 0.2 });
+  const sectionRef = useRef(null);
   const [typedText, setTypedText] = useState('');
   const [showAiResponse, setShowAiResponse] = useState(false);
+  const [isTypingTriggered, setIsTypingTriggered] = useState(false);
   const fullText = 'Hey Clari, did I have a heart attack?';
 
   useEffect(() => {
+    const sectionElement = sectionRef.current;
+    if (!sectionElement || isTypingTriggered) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsTypingTriggered(true);
+        }
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(sectionElement);
+
+    return () => observer.disconnect();
+  }, [isTypingTriggered]);
+
+  useEffect(() => {
+    if (!isTypingTriggered) return;
+
+    setTypedText('');
+    setShowAiResponse(false);
+
     let currentIndex = 0;
+    let responseTimeout;
+
     const typingInterval = setInterval(() => {
       if (currentIndex <= fullText.length) {
         setTypedText(fullText.substring(0, currentIndex));
         currentIndex++;
       } else {
         clearInterval(typingInterval);
-        setTimeout(() => setShowAiResponse(true), 500);
+        responseTimeout = setTimeout(() => setShowAiResponse(true), 500);
       }
     }, 50);
 
-    return () => clearInterval(typingInterval);
-  }, []);
+    return () => {
+      clearInterval(typingInterval);
+      if (responseTimeout) clearTimeout(responseTimeout);
+    };
+  }, [fullText, isTypingTriggered]);
 
   return (
-    <section className="features-section">
+    <section className="features-section" ref={sectionRef}>
       <div className="features-header fade-in-up" ref={headerRef}>
         <h2 className="features-title">Medical records made simple</h2>
         <p className="features-subtitle">Decode complex medical information with AI-powered insights</p>

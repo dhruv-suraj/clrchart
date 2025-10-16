@@ -31,7 +31,6 @@ const ContactForm = () => {
     <section className="contact-form-section">
       <div className="form-container">
         <div className="form-header">
-          <p className="form-label">Talk</p>
           <h2 className="form-title">Contact us</h2>
           <p className="form-subtitle">We want to hear from you. Fill out the form below.</p>
 

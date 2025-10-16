@@ -29,14 +29,24 @@
 .nav-left {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
+    gap: 0.75rem;
+    margin-left: 1.5rem;
 }
 
 .logo img,
 .logo svg {
-    width: 56px;
-    height: 56px;
+    width: 68px;
+    height: 68px;
     object-fit: contain;
+}
+
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
 }
 
 .nav-links {
@@ -44,6 +54,11 @@
     align-items: center;
     gap: 1.25rem;
     font-size: 1rem;
+}
+
+.nav-links-center-left,
+.nav-links-center-right {
+    gap: 1rem;
 }
 
 .nav-links a {
@@ -58,15 +73,13 @@
 }
 
 .logo-center {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     font-size: 1.75rem;
     font-weight: 700;
     color: #7DD3D3;
     text-decoration: none;
     letter-spacing: -0.5px;
     transition: color 0.3s ease;
+    white-space: nowrap;
 }
 
 .logo-center:hover {
@@ -96,15 +109,12 @@
     display: flex;
     align-items: center;
     gap: 1.25rem;
-}
-
-.nav-links-right a {
-    color: #0D6B65;
+    margin-right: 1.5rem;
 }
 
 .btn-primary {
     background: #7DD3D3;
-    color: #000;
+    color: #FFFFFF;
     border: none;
     padding: 0.75rem 2rem;
     border-radius: 25px;
@@ -222,8 +232,21 @@
         padding: 1rem 1.5rem;
     }
 
+    .nav-left {
+        margin-left: 0;
+    }
+
     .nav-links {
         display: none;
+    }
+
+    .nav-center {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .logo-center {
+        font-size: 1.25rem;
     }
 
     .menu-btn {

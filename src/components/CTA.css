@@ -1,6 +1,6 @@
 .cta-section {
     padding: 6rem 3rem;
-    background: linear-gradient(135deg, #E8F7F7 0%, #D4EEEE 100%);
+    background: linear-gradient(135deg, #E5F2F2 0%, #D0E8E7 100%);
     position: relative;
     overflow: hidden;
 }
@@ -51,8 +51,8 @@
 }
 
 .btn-try-free {
-    background: #7DD3D3;
-    color: #000;
+    background: #4A8E8B;
+    color: #fff;
     border: none;
     padding: 1rem 2.5rem;
     border-radius: 30px;
@@ -60,18 +60,18 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(93, 196, 196, 0.3);
+    box-shadow: 0 4px 15px rgba(43, 122, 120, 0.3);
 }
 
 .btn-try-free:hover {
-    background: #6BC2C2;
+    background: #2B7A78;
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 25px rgba(93, 196, 196, 0.5);
+    box-shadow: 0 8px 25px rgba(43, 122, 120, 0.5);
 }
 
 .btn-try-free:active {
     transform: translateY(-1px) scale(1);
-    box-shadow: 0 4px 15px rgba(93, 196, 196, 0.3);
+    box-shadow: 0 4px 15px rgba(43, 122, 120, 0.3);
 }
 
 .btn-contact {
@@ -176,7 +176,7 @@
     transform: translate(-50%, -50%);
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, rgba(93, 196, 196, 0.2) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(43, 122, 120, 0.2) 0%, transparent 70%);
     border-radius: 50%;
     animation: pulse 3s ease-in-out infinite;
 }

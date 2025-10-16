@@ -3,7 +3,7 @@ import './AboutFAQ.css';
 import useScrollAnimation from '../../hooks/useScrollAnimation';
 
 const AboutFAQ = () => {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(-1);
   const headerRef = useScrollAnimation({ threshold: 0.2 });
   const listRef = useScrollAnimation({ threshold: 0.2 });
   const footerRef = useScrollAnimation({ threshold: 0.2 });
@@ -31,8 +31,12 @@ const AboutFAQ = () => {
     }
   ];
 
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? -1 : index);
+  const handleMouseEnter = (index) => {
+    setOpenIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setOpenIndex(-1);
   };
 
   return (
@@ -49,10 +53,11 @@ const AboutFAQ = () => {
           <div
             key={index}
             className={`faq-item ${openIndex === index ? 'active' : ''}`}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={handleMouseLeave}
           >
             <button
               className="faq-question"
-              onClick={() => toggleFAQ(index)}
             >
               <span>{faq.question}</span>
               <span className="faq-icon">{openIndex === index ? '−' : '+'}</span>
@@ -64,11 +69,7 @@ const AboutFAQ = () => {
         ))}
       </div>
 
-      <div className="faq-footer fade-in-up" ref={footerRef}>
-        <h3 className="faq-footer-title">Need more information?</h3>
-        <p className="faq-footer-text">Our support team is ready to answer your specific questions</p>
-        <button className="btn-faq-contact">Contact</button>
-      </div>
+      
     </section>
   );
 };

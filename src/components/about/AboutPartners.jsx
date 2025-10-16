@@ -32,17 +32,7 @@ const AboutPartners = () => {
             </div>
           </div>
 
-          <div className="partner-logo">
-            <div className="logo-card">
-              <svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="20" r="8" fill="#4285F4"/>
-                <circle cx="24" cy="12" r="8" fill="#EA4335"/>
-                <circle cx="24" cy="28" r="8" fill="#FBBC04"/>
-                <circle cx="36" cy="20" r="8" fill="#34A853"/>
-                <text x="50" y="25" fontFamily="Arial" fontSize="16" fontWeight="500" fill="#5F6368">Google Cloud</text>
-              </svg>
-            </div>
-          </div>
+
         </div>
       </div>
     </section>

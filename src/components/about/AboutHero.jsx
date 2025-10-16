@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './AboutHero.css';
+import useScrollAnimation from '../../hooks/useScrollAnimation';
 
 const AboutHero = () => {
   console.log('AboutHero rendering');
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [titleWords, setTitleWords] = useState([]);
+  const [isVisible, setIsVisible] = useState(false);
   const heroRef = useRef(null);
+  const contentRef = useScrollAnimation({ threshold: 0.2 });
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -22,6 +25,32 @@ const AboutHero = () => {
   }, []);
 
   useEffect(() => {
+    // Observer to detect when content becomes visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (contentRef.current) {
+      observer.observe(contentRef.current);
+    }
+
+    return () => {
+      if (contentRef.current) {
+        observer.unobserve(contentRef.current);
+      }
+    };
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
     const words = 'Decode your'.split(' ');
     const animateWords = async () => {
       for (let i = 0; i < words.length; i++) {
@@ -30,10 +59,10 @@ const AboutHero = () => {
       }
     };
     animateWords();
-  }, []);
+  }, [isVisible]);
 
   return (
-    <section className="about-hero" ref={heroRef}>
+    <section className={`about-hero ${isVisible ? 'hero-visible' : ''}`} ref={heroRef}>
       <div className="about-hero-background">
         {/* Medical grid pattern */}
         <div className="medical-grid"></div>
@@ -108,12 +137,12 @@ const AboutHero = () => {
         </div>
       </div>
 
-      <div className="about-hero-container">
-        <div className="about-hero-badge">
+      <div className="about-hero-container" ref={contentRef}>
+        <div className="about-hero-badge scroll-animate">
           <span className="about-badge-dot"></span>
           <span>Our Mission</span>
         </div>
-        <h1 className="about-hero-title">
+        <h1 className="about-hero-title scroll-animate">
           {titleWords.map((word, index) => (
             <span
               key={index}
@@ -127,11 +156,11 @@ const AboutHero = () => {
             health
           </span>
         </h1>
-        <p className="about-hero-subtitle subtitle-animate">
+        <p className="about-hero-subtitle subtitle-animate scroll-animate">
           Transforming complex medical records into clear, actionable insights for patients
         </p>
 
-        <div className="scroll-indicator">
+        <div className="scroll-indicator scroll-animate">
           <div className="scroll-mouse">
             <div className="scroll-wheel"></div>
           </div>

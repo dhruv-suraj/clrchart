@@ -26,9 +26,7 @@ const HowWeHelp = () => {
           <div className="feature-content">
             <h3 className="feature-title">Unified medical records</h3>
             <p className="feature-description">Seamlessly pull data from hospitals and clinics</p>
-            <a href="#" className="feature-link">
-              Explore <span>→</span>
-            </a>
+            
           </div>
         </div>
 
@@ -39,9 +37,7 @@ const HowWeHelp = () => {
           <div className="feature-content">
             <h3 className="feature-title">AI-powered explanations</h3>
             <p className="feature-description">Translate complex medical terminology into clear language</p>
-            <a href="#" className="feature-link">
-              Discover <span>→</span>
-            </a>
+            
           </div>
         </div>
 
@@ -52,9 +48,7 @@ const HowWeHelp = () => {
           <div className="feature-content">
             <h3 className="feature-title">Answers you can understand</h3>
             <p className="feature-description">Ask direct questions about your health and get precise answers that you can understand</p>
-            <a href="#" className="feature-link">
-              Try now <span>→</span>
-            </a>
+  
           </div>
         </div>
       </div>

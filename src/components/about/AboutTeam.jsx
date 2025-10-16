@@ -14,6 +14,7 @@ const AboutTeam = () => {
       role: 'Founder and CEO',
       description: 'A nurse practitioner with 8+ years in critical care, with deep insights into patient care challenges and technological solutions',
       image: nicholasDavisImage,
+      imagePosition: 'center 20%',
       linkedin: '#',
       twitter: '#',
       website: '#'
@@ -23,6 +24,7 @@ const AboutTeam = () => {
       role: 'Lead AI engineer',
       description: 'Technical architect building intelligent systems that bridge medical complexity and patient comprehension',
       image: dhruvSurajImage,
+      imagePosition: 'center center',
       linkedin: '#',
       twitter: '#',
       website: '#'
@@ -85,7 +87,11 @@ const AboutTeam = () => {
             >
               <div className="team-image-wrapper">
                 <div className="team-image">
-                  <img src={member.image} alt={member.name} />
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    style={member.imagePosition ? { objectPosition: member.imagePosition } : undefined}
+                  />
                   <div className="team-image-overlay"></div>
                 </div>
               </div>

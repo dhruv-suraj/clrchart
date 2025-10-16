@@ -31,19 +31,21 @@ const Navbar = () => {
         <Link to="/" className="logo">
           <img className="logo-img" src={logo} alt="ClearChartAI" />
         </Link>
-        <div className="nav-links nav-links-left">
+      </div>
+      <div className="nav-center">
+        <div className="nav-links nav-links-center-left">
           <Link to="/about">About</Link>
           <Link to="/features">Features</Link>
         </div>
-      </div>
-      <Link to="/" className="logo-center">
-        ClearChartAI
-      </Link>
-      <div className="nav-right">
-        <div className="nav-links nav-links-right">
+        <Link to="/" className="logo-center">
+          ClearChartAI
+        </Link>
+        <div className="nav-links nav-links-center-right">
           <Link to="/blog">Blog</Link>
           <Link to="/contact">Contact</Link>
         </div>
+      </div>
+      <div className="nav-right">
         <Link to="/dashboard" className="btn-primary">Try For Free</Link>
         <button className={`menu-btn ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
           <span></span>

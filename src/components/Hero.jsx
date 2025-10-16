@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Hero.css';
-import logoVideo from '../assets/EKG logo.mp4';
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -84,19 +83,7 @@ const Hero = () => {
           </div>
         </div>
         <div className="hero-image" style={parallaxStyle}>
-          <div className="video-container">
-            <div className="video-glow"></div>
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="hero-video"
-            >
-              <source src={logoVideo} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
+          <div className="video-container empty" aria-hidden="true"></div>
         </div>
       </div>
     </main>

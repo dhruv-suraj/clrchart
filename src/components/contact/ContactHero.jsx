@@ -22,9 +22,6 @@ const ContactHero = () => {
 
       <div className="contact-hero-container">
         <div className={`contact-badge ${visible ? 'visible' : ''}`}>
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-            <path d="M10 2L12 8L18 8L13 12L15 18L10 14L5 18L7 12L2 8L8 8L10 2Z" fill="currentColor"/>
-          </svg>
           <span>Let's Talk</span>
         </div>
         <h1 className={`contact-hero-title ${visible ? 'visible' : ''}`}>
