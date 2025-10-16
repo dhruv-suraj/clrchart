@@ -1,5 +1,6 @@
 import React from 'react';
 import './AboutImpact.css';
+import useScrollAnimation from '../../hooks/useScrollAnimation';
 
 const AboutImpact = () => {
   const impactCards = [
@@ -59,29 +60,38 @@ const AboutImpact = () => {
     }
   ];
 
+  const headerRef = useScrollAnimation({ threshold: 0.2 });
+
   return (
     <section className="about-impact">
-      <div className="about-impact-header">
+      <div className="about-impact-header fade-in-up" ref={headerRef}>
         <h2 className="about-impact-title">Transforming healthcare for everyone</h2>
         <p className="about-impact-subtitle">Empowering health decisions through clear, actionable insights</p>
       </div>
 
       <div className="impact-cards-grid">
-        {impactCards.map((card, index) => (
-          <div key={index} className="impact-card" style={{ background: card.gradient }}>
-            <div className="impact-card-icon">
-              {card.icon}
+        {impactCards.map((card, index) => {
+          const cardRef = useScrollAnimation({ threshold: 0.2 });
+          return (
+            <div key={index} className="impact-card scale-in" ref={cardRef} style={{ background: card.gradient, transitionDelay: `${index * 0.15}s` }}>
+              <div className="impact-card-background">
+                <div className="impact-orb impact-orb-1"></div>
+                <div className="impact-orb impact-orb-2"></div>
+              </div>
+              <div className="impact-card-icon">
+                {card.icon}
+              </div>
+              <div className="impact-card-content">
+                <p className="impact-card-category">{card.category}</p>
+                <h3 className="impact-card-title">{card.title}</h3>
+                <p className="impact-card-description">{card.description}</p>
+                <a href="#" className="impact-card-link">
+                  {card.link} <span>→</span>
+                </a>
+              </div>
             </div>
-            <div className="impact-card-content">
-              <p className="impact-card-category">{card.category}</p>
-              <h3 className="impact-card-title">{card.title}</h3>
-              <p className="impact-card-description">{card.description}</p>
-              <a href="#" className="impact-card-link">
-                {card.link} <span>→</span>
-              </a>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

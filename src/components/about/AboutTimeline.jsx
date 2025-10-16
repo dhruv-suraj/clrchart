@@ -1,10 +1,15 @@
 import React from 'react';
 import './AboutTimeline.css';
+import useScrollAnimation from '../../hooks/useScrollAnimation';
 
 const AboutTimeline = () => {
+  const headerRef = useScrollAnimation({ threshold: 0.2 });
+  const textRef = useScrollAnimation({ threshold: 0.2 });
+  const imageRef = useScrollAnimation({ threshold: 0.2 });
+
   return (
     <section className="about-timeline">
-      <div className="timeline-header">
+      <div className="timeline-header fade-in-up" ref={headerRef}>
         <div className="timeline-years">
           <div className="timeline-year active">2025</div>
           <div className="timeline-year">2026</div>
@@ -18,7 +23,7 @@ const AboutTimeline = () => {
       </div>
 
       <div className="timeline-content">
-        <div className="timeline-text">
+        <div className="timeline-text slide-in-left" ref={textRef}>
           <h2 className="timeline-title">2025</h2>
           <h3 className="timeline-subtitle">Founding the vision of patient-centered health technology</h3>
           <p className="timeline-description">
@@ -32,11 +37,14 @@ const AboutTimeline = () => {
           </div>
         </div>
 
-        <div className="timeline-image">
-          <img
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop"
-            alt="Team collaboration meeting"
-          />
+        <div className="timeline-image slide-in-right" ref={imageRef}>
+          <div className="timeline-image-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop"
+              alt="Team collaboration meeting"
+            />
+            <div className="timeline-image-overlay"></div>
+          </div>
         </div>
       </div>
     </section>

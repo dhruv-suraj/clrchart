@@ -1,6 +1,31 @@
 .about-team {
     padding: 6rem 3rem;
     background: linear-gradient(135deg, #F5F9F9 0%, #E8F3F3 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Scroll animations */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .team-header {
@@ -43,13 +68,19 @@
     background: #FFFFFF;
     border-radius: 20px;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.1s ease-out;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transform-style: preserve-3d;
+    will-change: transform;
 }
 
 .team-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.team-image-wrapper {
+    position: relative;
+    overflow: hidden;
 }
 
 .team-image {
@@ -57,12 +88,33 @@
     height: 320px;
     overflow: hidden;
     background: #F0F0F0;
+    position: relative;
 }
 
 .team-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-card:hover .team-image img {
+    transform: scale(1.08);
+}
+
+.team-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.team-card:hover .team-image-overlay {
+    opacity: 1;
 }
 
 .team-info {

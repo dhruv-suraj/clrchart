@@ -1,11 +1,15 @@
 import React from 'react';
 import './AboutPartners.css';
+import useScrollAnimation from '../../hooks/useScrollAnimation';
 
 const AboutPartners = () => {
+  const textRef = useScrollAnimation({ threshold: 0.2 });
+  const logosRef = useScrollAnimation({ threshold: 0.2 });
+
   return (
     <section className="about-partners">
       <div className="partners-container">
-        <div className="partners-text">
+        <div className="partners-text slide-in-left" ref={textRef}>
           <h2 className="partners-title">Our trusted healthcare technology partners</h2>
           <p className="partners-description">
             Strategic collaborations driving innovation in medical data understanding and patient empowerment
@@ -15,7 +19,7 @@ const AboutPartners = () => {
           </div>
         </div>
 
-        <div className="partners-logos">
+        <div className="partners-logos slide-in-right" ref={logosRef}>
           <div className="partner-logo">
             <div className="logo-card">
               <svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">

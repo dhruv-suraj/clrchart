@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import './AboutFAQ.css';
+import useScrollAnimation from '../../hooks/useScrollAnimation';
 
 const AboutFAQ = () => {
   const [openIndex, setOpenIndex] = useState(0);
+  const headerRef = useScrollAnimation({ threshold: 0.2 });
+  const listRef = useScrollAnimation({ threshold: 0.2 });
+  const footerRef = useScrollAnimation({ threshold: 0.2 });
 
   const faqs = [
     {
@@ -33,14 +37,14 @@ const AboutFAQ = () => {
 
   return (
     <section className="about-faq">
-      <div className="faq-header">
+      <div className="faq-header fade-in-up" ref={headerRef}>
         <h2 className="faq-title">FAQs</h2>
         <p className="faq-subtitle">
           Answers to help you understand how ClearChartAI transforms your medical record experience
         </p>
       </div>
 
-      <div className="faq-list">
+      <div className="faq-list scale-in" ref={listRef}>
         {faqs.map((faq, index) => (
           <div
             key={index}
@@ -60,7 +64,7 @@ const AboutFAQ = () => {
         ))}
       </div>
 
-      <div className="faq-footer">
+      <div className="faq-footer fade-in-up" ref={footerRef}>
         <h3 className="faq-footer-title">Need more information?</h3>
         <p className="faq-footer-text">Our support team is ready to answer your specific questions</p>
         <button className="btn-faq-contact">Contact</button>

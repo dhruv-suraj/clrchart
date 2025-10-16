@@ -7,6 +7,7 @@ import { useEffect, useRef } from 'react';
  */
 const useScrollAnimation = (options = {}) => {
   const elementRef = useRef(null);
+  const observerRef = useRef(null);
 
   useEffect(() => {
     const element = elementRef.current;
@@ -18,7 +19,12 @@ const useScrollAnimation = (options = {}) => {
       ...options
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    // Clean up previous observer if it exists
+    if (observerRef.current) {
+      observerRef.current.disconnect();
+    }
+
+    observerRef.current = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
@@ -26,14 +32,16 @@ const useScrollAnimation = (options = {}) => {
       });
     }, defaultOptions);
 
-    observer.observe(element);
+    observerRef.current.observe(element);
 
     return () => {
-      if (element) {
-        observer.unobserve(element);
+      if (observerRef.current && element) {
+        observerRef.current.unobserve(element);
+        observerRef.current.disconnect();
       }
     };
-  }, [options]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return elementRef;
 };
