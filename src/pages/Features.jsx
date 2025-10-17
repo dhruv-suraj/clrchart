@@ -1,5 +1,6 @@
 import React from 'react';
 import FeaturesHero from '../components/features/FeaturesHero';
+import FeaturesInteractive from '../components/features/FeaturesInteractive';
 import FeaturesUnified from '../components/features/FeaturesUnified';
 import FeaturesDecode from '../components/features/FeaturesDecode';
 import FeaturesClari from '../components/features/FeaturesClari';
@@ -12,6 +13,7 @@ const Features = () => {
   return (
     <>
       <FeaturesHero />
+      <FeaturesInteractive />
       <FeaturesUnified />
       <FeaturesDecode />
       <FeaturesClari />
