@@ -37,16 +37,49 @@
     gap: 2rem;
     max-width: 1400px;
     margin: 0 auto;
+    align-items: flex-start;
 }
 
 .feature-card {
     background: #FFFFFF;
     border-radius: 20px;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
 }
 
-.feature-card:hover {
+/* Outer cards (first and last) - initially positioned above */
+.feature-card.card-outer {
+    transform: translateY(-80px);
+}
+
+/* Middle card - stays in original position */
+.feature-card.card-middle {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Animated state - all cards slide to original position */
+.features-grid.animated .feature-card.card-outer {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.features-grid.animated .feature-card.card-middle {
+    opacity: 1;
+}
+
+/* Add staggered animation delay for outer cards */
+.features-grid.animated .feature-card.card-outer:first-child {
+    transition-delay: 0.2s;
+}
+
+.features-grid.animated .feature-card.card-outer:last-child {
+    transition-delay: 0.4s;
+}
+
+/* Hover effect - only when cards are in final position */
+.features-grid.animated .feature-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 }
@@ -176,6 +209,16 @@
     .section-title {
         font-size: 3rem;
     }
+
+    /* Adjust animation for tablet - only first card starts above */
+    .feature-card.card-outer:first-child {
+        transform: translateY(-60px);
+    }
+
+    .feature-card.card-outer:last-child {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 @media (max-width: 768px) {
@@ -194,6 +237,30 @@
 
     .feature-image {
         height: 240px;
+    }
+
+    /* On mobile, all cards fade in from below instead */
+    .feature-card.card-outer,
+    .feature-card.card-middle {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+
+    .features-grid.animated .feature-card {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .features-grid.animated .feature-card.card-outer:first-child {
+        transition-delay: 0.1s;
+    }
+
+    .features-grid.animated .feature-card.card-middle {
+        transition-delay: 0.25s;
+    }
+
+    .features-grid.animated .feature-card.card-outer:last-child {
+        transition-delay: 0.4s;
     }
 }
 
