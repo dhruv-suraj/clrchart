@@ -17,7 +17,10 @@ const HowWeHelp = () => {
           setCardsAnimated(true);
         }
       },
-      { threshold: 0.3 }
+      {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px' // Trigger slightly before fully in view
+      }
     );
 
     if (cardsContainerRef.current) {
