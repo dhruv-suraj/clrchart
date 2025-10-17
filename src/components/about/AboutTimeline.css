@@ -80,7 +80,7 @@
     left: 0;
     width: 25%;
     height: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #8d87ba 0%, #6d67a0 100%);
     border-radius: 2px;
     transition: width 0.3s ease;
     box-shadow: 0 0 15px rgba(102, 126, 234, 0.3);
@@ -94,7 +94,7 @@
     transform: translateY(-50%);
     width: 12px;
     height: 12px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #8d87ba 0%, #6d67a0 100%);
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
     animation: pulse 2s ease-in-out infinite;

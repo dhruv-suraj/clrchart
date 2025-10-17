@@ -80,7 +80,7 @@
     justify-content: center;
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
     border-radius: 16px;
-    color: #667eea;
+    color: #8d87ba;
     transition: all 0.4s ease;
 }
 
@@ -92,7 +92,7 @@
 .stat-number {
     font-size: 3.5rem;
     font-weight: 800;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #8d87ba 0%, #6d67a0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

@@ -30,7 +30,7 @@
 .contact-orb-1 {
     width: 400px;
     height: 400px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #8d87ba 0%, #6d67a0 100%);
     top: -100px;
     left: -100px;
     animation-delay: 0s;
@@ -39,7 +39,7 @@
 .contact-orb-2 {
     width: 350px;
     height: 350px;
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: linear-gradient(135deg, #b3aed6 0%, #f5576c 100%);
     bottom: -100px;
     right: -100px;
     animation-delay: 5s;
@@ -125,7 +125,7 @@
     border-radius: 50px;
     font-size: 0.9rem;
     font-weight: 600;
-    color: #667eea;
+    color: #8d87ba;
     margin-bottom: 2rem;
     border: 2px solid rgba(102, 126, 234, 0.2);
     box-shadow: 0 8px 24px rgba(102, 126, 234, 0.12);
@@ -140,7 +140,7 @@
 }
 
 .contact-badge svg {
-    color: #667eea;
+    color: #8d87ba;
 }
 
 .contact-hero-title {
@@ -161,7 +161,7 @@
 }
 
 .gradient-accent {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background: linear-gradient(135deg, #8d87ba 0%, #6d67a0 50%, #b3aed6 100%);
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

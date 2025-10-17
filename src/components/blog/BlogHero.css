@@ -24,7 +24,7 @@
     border-radius: 50px;
     font-size: 0.85rem;
     font-weight: 600;
-    color: #667eea;
+    color: #8d87ba;
     margin-bottom: 1.5rem;
     border: 2px solid rgba(102, 126, 234, 0.15);
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.08);
@@ -41,7 +41,7 @@
 .pulse-dot {
     width: 8px;
     height: 8px;
-    background: #667eea;
+    background: #8d87ba;
     border-radius: 50%;
     animation: pulse 2s ease-in-out infinite;
 }
@@ -75,7 +75,7 @@
 }
 
 .gradient-text {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background: linear-gradient(135deg, #8d87ba 0%, #6d67a0 50%, #b3aed6 100%);
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -147,7 +147,7 @@
 }
 
 .search-input:focus {
-    border-color: #667eea;
+    border-color: #8d87ba;
     box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
 }
 
@@ -172,7 +172,7 @@
 }
 
 .search-clear:hover {
-    color: #667eea;
+    color: #8d87ba;
 }
 
 /* Featured Post */
@@ -241,7 +241,7 @@
     border-radius: 50px;
     font-size: 0.85rem;
     font-weight: 600;
-    color: #667eea;
+    color: #8d87ba;
     display: flex;
     align-items: center;
     gap: 0.4rem;
@@ -264,7 +264,7 @@
 }
 
 .featured-category {
-    color: #667eea;
+    color: #8d87ba;
     font-weight: 600;
 }
 
@@ -307,7 +307,7 @@
 .author-avatar {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #8d87ba 0%, #6d67a0 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -329,7 +329,7 @@
 .featured-tag {
     padding: 0.4rem 0.9rem;
     background: rgba(102, 126, 234, 0.08);
-    color: #667eea;
+    color: #8d87ba;
     border-radius: 50px;
     font-size: 0.8rem;
     font-weight: 500;
@@ -340,7 +340,7 @@
     align-items: center;
     gap: 0.5rem;
     font-weight: 600;
-    color: #667eea;
+    color: #8d87ba;
     transition: gap 0.3s ease;
 }
 

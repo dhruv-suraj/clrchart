@@ -149,7 +149,7 @@
 .about-orb-1 {
     width: 600px;
     height: 600px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #8d87ba 0%, #6d67a0 100%);
     top: -250px;
     left: -250px;
     animation-delay: 0s;
@@ -158,7 +158,7 @@
 .about-orb-2 {
     width: 500px;
     height: 500px;
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: linear-gradient(135deg, #b3aed6 0%, #f5576c 100%);
     bottom: -200px;
     right: -200px;
     animation-delay: 8s;
@@ -246,7 +246,7 @@
     border-radius: 50px;
     font-size: 0.875rem;
     font-weight: 500;
-    color: #667eea;
+    color: #8d87ba;
     margin-bottom: 1.5rem;
     border: 1px solid rgba(102, 126, 234, 0.2);
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
@@ -259,7 +259,7 @@
 .about-badge-dot {
     width: 8px;
     height: 8px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #8d87ba 0%, #6d67a0 100%);
     border-radius: 50%;
     animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
@@ -328,7 +328,7 @@
 }
 
 .about-gradient-text {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background: linear-gradient(135deg, #8d87ba 0%, #6d67a0 50%, #b3aed6 100%);
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -372,7 +372,7 @@
 .scroll-wheel {
     width: 4px;
     height: 8px;
-    background: #667eea;
+    background: #8d87ba;
     border-radius: 2px;
     position: absolute;
     top: 8px;
