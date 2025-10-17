@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './BlogPosts.css';
 
 const BlogPosts = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [visiblePosts, setVisiblePosts] = useState(6);
-  const [cardsVisible, setCardsVisible] = useState([]);
+  const [observedPosts, setObservedPosts] = useState(new Set());
+  const observerRef = useRef(null);
 
   const categories = ['All', 'Technology', 'Privacy', 'AI', 'Patient Education', 'Wellness'];
 
@@ -118,12 +119,30 @@ const BlogPosts = () => {
   const displayedPosts = filteredPosts.slice(0, visiblePosts);
 
   useEffect(() => {
-    // Trigger card animations on mount and filter change
-    setCardsVisible([]);
-    const timer = setTimeout(() => {
-      setCardsVisible(displayedPosts.map((_, i) => i));
-    }, 100);
-    return () => clearTimeout(timer);
+    // Reset observed posts when category changes
+    setObservedPosts(new Set());
+
+    // Set up intersection observer
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = entry.target.getAttribute('data-index');
+            setObservedPosts((prev) => new Set([...prev, parseInt(index)]));
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -100px 0px'
+      }
+    );
+
+    // Observe all post elements
+    const postElements = document.querySelectorAll('.blog-article');
+    postElements.forEach((el) => observerRef.current?.observe(el));
+
+    return () => observerRef.current?.disconnect();
   }, [selectedCategory, displayedPosts.length]);
 
   const handleLoadMore = () => {
@@ -131,84 +150,60 @@ const BlogPosts = () => {
   };
 
   return (
-    <section className="blog-posts">
-      <div className="blog-posts-container">
-        {/* Category Filter Pills */}
-        <div className="blog-filter-pills">
-          <div className="filter-pills-container">
-            {categories.map((category) => (
-              <button
-                key={category}
-                className={`filter-pill ${selectedCategory === category ? 'active' : ''}`}
-                onClick={() => {
-                  setSelectedCategory(category);
-                  setVisiblePosts(6);
-                }}
-              >
-                {category}
-                {selectedCategory === category && (
-                  <span className="pill-indicator"></span>
-                )}
-              </button>
-            ))}
-          </div>
+    <section className="blog-posts-section">
+      <div className="blog-container">
+        {/* Filter Pills */}
+        <div className="blog-filters">
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={`filter-btn ${selectedCategory === category ? 'active' : ''}`}
+              onClick={() => {
+                setSelectedCategory(category);
+                setVisiblePosts(6);
+              }}
+            >
+              {category}
+            </button>
+          ))}
         </div>
 
         {/* Posts Count */}
-        <div className="posts-header">
-          <h2 className="posts-count">
-            {filteredPosts.length} {filteredPosts.length === 1 ? 'article' : 'articles'}
+        <div className="blog-header">
+          <h2 className="articles-count">
+            {filteredPosts.length} {filteredPosts.length === 1 ? 'Article' : 'Articles'}
           </h2>
-          <div className="posts-sort">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path d="M3 5H15M5 9H13M7 13H11" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-            </svg>
-            <span>Latest first</span>
-          </div>
         </div>
 
-        {/* Posts Grid */}
-        <div className="posts-grid">
+        {/* Articles */}
+        <div className="blog-articles">
           {displayedPosts.map((post, index) => (
             <article
               key={index}
-              className={`post-card ${cardsVisible.includes(index) ? 'visible' : ''}`}
-              style={{ animationDelay: `${(index % 6) * 0.1}s` }}
+              data-index={index}
+              className={`blog-article ${observedPosts.has(index) ? 'visible' : ''}`}
             >
-              <Link to={`/blog/${post.slug}`} className="post-card-link">
-                <div className="post-image-wrapper">
-                  <img src={post.imageSrc} alt={post.title} className="post-image" />
-                  <div className="post-image-overlay">
-                    <span className="read-overlay">Read article</span>
+              <Link to={`/blog/${post.slug}`} className="article-link">
+                <div className="article-image-wrapper">
+                  <img src={post.imageSrc} alt={post.title} className="article-image" />
+                  <div className="image-overlay">
+                    <span className="overlay-text">Read Article</span>
                   </div>
-                  <div className="post-category-badge">{post.category}</div>
                 </div>
 
-                <div className="post-content">
-                  <div className="post-meta-top">
-                    <div className="post-author">
-                      <span className="author-avatar">{post.author.avatar}</span>
-                      <span className="author-name">{post.author.name}</span>
-                    </div>
-                    <div className="post-date">{post.date}</div>
-                  </div>
+                <div className="article-content">
+                  <div className="article-category">{post.category}</div>
 
-                  <h3 className="post-title">{post.title}</h3>
-                  <p className="post-description">{post.description}</p>
+                  <h3 className="article-title">{post.title}</h3>
 
-                  <div className="post-footer">
-                    <div className="post-tags">
-                      {post.tags.map((tag, i) => (
-                        <span key={i} className="post-tag">{tag}</span>
-                      ))}
-                    </div>
-                    <div className="post-read-time">
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <circle cx="8" cy="8" r="6" stroke="currentColor" strokeWidth="1.5"/>
-                        <path d="M8 5V8L10.5 10.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                      </svg>
-                      {post.readTime}
-                    </div>
+                  <p className="article-description">{post.description}</p>
+
+                  <div className="article-meta">
+                    <span className="meta-author">{post.author.name}</span>
+                    <span className="meta-separator">·</span>
+                    <span className="meta-date">{post.date}</span>
+                    <span className="meta-separator">·</span>
+                    <span className="meta-time">{post.readTime}</span>
                   </div>
                 </div>
               </Link>
@@ -216,14 +211,11 @@ const BlogPosts = () => {
           ))}
         </div>
 
-        {/* Load More Button */}
+        {/* Load More */}
         {visiblePosts < filteredPosts.length && (
           <div className="blog-load-more">
-            <button className="btn-load-more" onClick={handleLoadMore}>
-              <span>Load more articles</span>
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M10 5V15M5 10H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-              </svg>
+            <button className="load-more-btn" onClick={handleLoadMore}>
+              View More Articles
             </button>
           </div>
         )}
