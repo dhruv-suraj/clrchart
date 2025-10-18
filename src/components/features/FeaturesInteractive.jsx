@@ -19,57 +19,48 @@ const FeaturesInteractive = () => {
   const features = [
     {
       tab: 0,
-      title: 'EHR Integration',
-      description: 'Seamlessly connect with major Electronic Health Record systems.',
-      details: ['HL7 FHIR support', 'Real-time sync', 'Multi-provider access']
+      description: 'Bring your story together effortlessly. We handle record requests securely so you never have to chase them down',
+      details: ['Secure Access', 'Fast Retrieval', 'Zero Hassle']
     },
     {
       tab: 0,
-      title: 'Wearable Device Sync',
-      description: 'Import data from fitness trackers and health monitoring devices.',
-      details: ['Apple Health', 'Google Fit', 'Smart device integration']
+      description: 'Your records flow directly from hospitals, clinics, and labs into one clear timeline.',
+      details: ['Unified Records', 'Verified Sources', 'Real-Time Updates']
     },
     {
       tab: 0,
-      title: 'Lab Results Import',
-      description: 'Automatically import and interpret lab results from various providers.',
-      details: ['PDF parsing', 'Data extraction', 'Trend tracking']
+      description: 'Every document is organized automatically, ready for you to view anytime.',
+      details: ['Smart Sorting', 'Instant Access', 'Peace of Mind']
     },
     {
       tab: 1,
-      title: 'Intelligent Report Analysis',
-      description: 'AI-powered analysis that transforms complex medical jargon into clear, understandable insights.',
-      details: ['Natural Language Processing', 'Context-aware interpretations', 'Personalized explanations']
+      description: 'Clari translates complex medical language into plain, easy-to-read summaries.',
+      details: ['Plain Language', 'Accurate Translation', 'Easy Clarity']
     },
     {
       tab: 1,
-      title: 'Predictive Health Insights',
-      description: 'Get proactive recommendations based on your medical history and current health data.',
-      details: ['Trend analysis', 'Early warning system', 'Personalized suggestions']
+      description: 'Key findings and diagnoses are highlighted so you know what truly matters.',
+      details: ['HIghlights', 'Insights', 'Understanding']
     },
     {
       tab: 1,
-      title: 'Smart Symptom Checker',
-      description: 'Understand your symptoms with AI-guided assessments and relevant medical information.',
-      details: ['Symptom matching', 'Severity assessment', 'Doctor preparation']
+      description: 'View trends across visits, labs, and imaging to see the bigger health picture.',
+      details: ['Trend Mapping', 'Data Visualization', 'Clarity Over Time']
     },
     {
       tab: 2,
-      title: 'End-to-End Encryption',
-      description: 'Your data is encrypted at rest and in transit using industry-standard protocols.',
-      details: ['AES-256 encryption', 'Zero-knowledge architecture', 'Secure data transmission']
+      description: 'Understand, ask, and act with confidence. Use your insights to prepare smarter questions before every appointment.',
+      details: ['Confidence', 'Preparation', 'Connection']
     },
     {
       tab: 2,
-      title: 'HIPAA Compliance',
-      description: 'Built with HIPAA-ready infrastructure to ensure your medical data stays private.',
-      details: ['Privacy by design', 'Audit trails', 'Compliance reporting']
+      description: 'Track your progress and symptoms to stay proactive about your care.',
+      details: ['Progress Tracking', 'Self Awareness', 'Engagement']
     },
     {
       tab: 2,
-      title: 'Access Control',
-      description: 'You control who sees your data with granular permission settings.',
-      details: ['Role-based access', 'Temporary sharing', 'Activity monitoring']
+      description: 'Receive new insights automatically as fresh records arrive.',
+      details: ['Continuous Updates', 'Proactive Guidance', 'Personalized Care']
     }
   ];
 

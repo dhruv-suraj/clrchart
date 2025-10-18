@@ -74,15 +74,15 @@
 }
 
 .navbar.scrolled {
-    background: rgba(240, 252, 251, 0.95);
-    box-shadow: 0 6px 18px rgba(13, 107, 101, 0.12);
-    backdrop-filter: blur(10px);
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
 }
 
 .navbar.scrolled .nav-links-container {
-    background: rgba(255, 255, 255, 0.8);
-    border-color: rgba(125, 211, 211, 0.4);
-    backdrop-filter: blur(10px);
+    background: transparent;
+    border-color: rgba(125, 211, 211, 0.3);
+    backdrop-filter: none;
 }
 
 .navbar.scrolled .menu-btn span {

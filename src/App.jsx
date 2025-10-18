@@ -9,10 +9,12 @@ import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Contact from './pages/Contact';
 import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
 import './App.css';
 
 function App() {
   const location = useLocation();
+  const hideNavbarFooter = location.pathname === '/login';
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -20,7 +22,7 @@ function App() {
 
   return (
     <div className="app">
-      <Navbar />
+      {!hideNavbarFooter && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
@@ -28,9 +30,10 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
-      <Footer />
+      {!hideNavbarFooter && <Footer />}
     </div>
   );
 }
