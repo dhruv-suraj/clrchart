@@ -1,120 +1,171 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './BlogHero.css';
 
 const BlogHero = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const autoPlayRef = useRef(null);
 
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
-  const featuredPost = {
-    category: 'Featured',
-    readTime: '8 min read',
-    date: 'December 15, 2025',
-    author: {
-      name: 'Dr. Sarah Chen',
-      avatar: '👨‍⚕️'
+  const slides = [
+    {
+      id: 1,
+      category: 'Featured',
+      title: 'Understanding Your Medical Records',
+      description: 'A complete guide to decode medical jargon and take control of your health journey',
+      image: '/src/assets/ChatGPT Image Oct 4, 2025, 09_28_34 PM.png',
+      slug: 'understanding-medical-records-guide',
+      date: 'Dec 15, 2025',
+      readTime: '8 min read'
     },
-    title: 'Understanding Your Medical Records: A Complete Guide',
-    description: 'Learn how to decode medical jargon, understand test results, and take control of your health journey with confidence.',
-    slug: 'understanding-medical-records-guide',
-    tags: ['Medical Records', 'Patient Education', 'Healthcare']
+    {
+      id: 2,
+      category: 'Technology',
+      title: 'AI in Healthcare Innovations',
+      description: 'How artificial intelligence is revolutionizing patient communication and care',
+      image: '/src/assets/ChatGPT Image Oct 4, 2025, 09_33_06 PM.png',
+      slug: 'ai-in-healthcare-innovations',
+      date: 'Dec 12, 2025',
+      readTime: '5 min read'
+    },
+    {
+      id: 3,
+      category: 'Privacy',
+      title: 'Patient Data Security Explained',
+      description: 'Essential tips for protecting your personal health information online',
+      image: '/src/assets/ChatGPT Image Oct 4, 2025, 09_31_12 PM.png',
+      slug: 'patient-data-security-explained',
+      date: 'Dec 13, 2025',
+      readTime: '6 min read'
+    }
+  ];
+
+  const nextSlide = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setTimeout(() => setIsTransitioning(false), 700);
+  };
+
+  const prevSlide = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setTimeout(() => setIsTransitioning(false), 700);
+  };
+
+  const goToSlide = (index) => {
+    if (isTransitioning || index === currentSlide) return;
+    setIsTransitioning(true);
+    setCurrentSlide(index);
+    setTimeout(() => setIsTransitioning(false), 700);
+  };
+
+  // Auto-play functionality
+  useEffect(() => {
+    autoPlayRef.current = setInterval(() => {
+      setIsTransitioning(true);
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setTimeout(() => setIsTransitioning(false), 700);
+    }, 5000);
+
+    return () => {
+      if (autoPlayRef.current) {
+        clearInterval(autoPlayRef.current);
+      }
+    };
+  }, [slides.length]);
+
+  // Pause on hover
+  const handleMouseEnter = () => {
+    if (autoPlayRef.current) {
+      clearInterval(autoPlayRef.current);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    autoPlayRef.current = setInterval(() => {
+      setIsTransitioning(true);
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setTimeout(() => setIsTransitioning(false), 700);
+    }, 5000);
   };
 
   return (
-    <section className="blog-hero-new">
-      <div className="blog-hero-header">
-        <div className="blog-hero-content">
-          <div className={`blog-badge ${isVisible ? 'visible' : ''}`}>
-            <span className="pulse-dot"></span>
-            <span>Latest Insights</span>
-          </div>
-          <h1 className={`blog-main-title ${isVisible ? 'visible' : ''}`}>
-            Health insights for <span className="gradient-text">patients</span>
-          </h1>
-          <p className={`blog-main-subtitle ${isVisible ? 'visible' : ''}`}>
-            Empowering you with clear, actionable health information
-          </p>
+    <section className="hero-slider" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <div className="slider-container">
+        {/* Slides */}
+        <div className="slides-wrapper">
+          {slides.map((slide, index) => (
+            <div
+              key={slide.id}
+              className={`slide ${index === currentSlide ? 'active' : ''} ${
+                index < currentSlide ? 'prev' : ''
+              } ${index > currentSlide ? 'next' : ''}`}
+            >
+              {/* Background Image */}
+              <div className="slide-image">
+                <img src={slide.image} alt={slide.title} />
+                <div className="slide-overlay"></div>
+              </div>
 
-          {/* Search Bar */}
-          <div className={`blog-search ${isVisible ? 'visible' : ''}`}>
-            <div className="search-container">
-              <svg className="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <circle cx="9" cy="9" r="6" stroke="currentColor" strokeWidth="2"/>
-                <path d="M14 14L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-              </svg>
-              <input
-                type="text"
-                placeholder="Search articles..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="search-input"
-              />
-              {searchQuery && (
-                <button className="search-clear" onClick={() => setSearchQuery('')}>
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M4 4L12 12M12 4L4 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                  </svg>
-                </button>
-              )}
+              {/* Content */}
+              <div className="slide-content">
+                <div className="slide-content-inner">
+                  <span className="slide-category">{slide.category}</span>
+                  <h1 className="slide-title">{slide.title}</h1>
+                  <p className="slide-description">{slide.description}</p>
+                  <div className="slide-meta">
+                    <span>{slide.date}</span>
+                    <span className="meta-separator">•</span>
+                    <span>{slide.readTime}</span>
+                  </div>
+                  <Link to={`/blog/${slide.slug}`} className="slide-cta">
+                    Read Article
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                      <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </Link>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
-      </div>
 
-      {/* Featured Post */}
-      <div className="featured-post-container">
-        <Link to={`/blog/${featuredPost.slug}`} className="featured-post">
-          <div className="featured-post-image">
-            <img
-              src="/src/assets/ChatGPT Image Oct 4, 2025, 09_28_34 PM.png"
-              alt={featuredPost.title}
+        {/* Navigation Arrows */}
+        <button className="slider-arrow prev-arrow" onClick={prevSlide} aria-label="Previous slide">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+        <button className="slider-arrow next-arrow" onClick={nextSlide} aria-label="Next slide">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+
+        {/* Dots Navigation */}
+        <div className="slider-dots">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              className={`dot ${index === currentSlide ? 'active' : ''}`}
+              onClick={() => goToSlide(index)}
+              aria-label={`Go to slide ${index + 1}`}
             />
-            <div className="featured-overlay"></div>
-            <div className="featured-badge">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M8 2L9.5 6.5L14 6.5L10.5 9.5L12 14L8 11L4 14L5.5 9.5L2 6.5L6.5 6.5L8 2Z" fill="currentColor"/>
-              </svg>
-              Featured
-            </div>
-          </div>
+          ))}
+        </div>
 
-          <div className="featured-post-content">
-            <div className="featured-post-meta">
-              <span className="featured-category">{featuredPost.category}</span>
-              <span className="meta-divider">•</span>
-              <span className="featured-date">{featuredPost.date}</span>
-              <span className="meta-divider">•</span>
-              <span className="featured-read-time">{featuredPost.readTime}</span>
-            </div>
-
-            <h2 className="featured-post-title">{featuredPost.title}</h2>
-            <p className="featured-post-description">{featuredPost.description}</p>
-
-            <div className="featured-post-footer">
-              <div className="featured-author">
-                <div className="author-avatar">{featuredPost.author.avatar}</div>
-                <span className="author-name">{featuredPost.author.name}</span>
-              </div>
-
-              <div className="featured-tags">
-                {featuredPost.tags.slice(0, 2).map((tag, index) => (
-                  <span key={index} className="featured-tag">{tag}</span>
-                ))}
-              </div>
-            </div>
-
-            <div className="read-more-arrow">
-              <span>Read Article</span>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-          </div>
-        </Link>
+        {/* Progress Bar */}
+        <div className="slider-progress">
+          <div
+            className="progress-bar"
+            style={{
+              width: `${((currentSlide + 1) / slides.length) * 100}%`,
+              transition: isTransitioning ? 'width 0.7s ease' : 'none'
+            }}
+          />
+        </div>
       </div>
     </section>
   );

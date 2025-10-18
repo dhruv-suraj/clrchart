@@ -166,6 +166,7 @@ const AboutHero = () => {
           </div>
           <span>Scroll to explore</span>
         </div>
+
       </div>
     </section>
   );
