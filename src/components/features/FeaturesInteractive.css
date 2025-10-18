@@ -153,6 +153,7 @@
 .feature-tab {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     padding: 0.9rem 1.8rem;
     background: transparent;
@@ -166,6 +167,8 @@
     position: relative;
     z-index: 2;
     white-space: nowrap;
+    flex: 1;
+    text-align: center;
 }
 
 .feature-tab:hover {
@@ -186,11 +189,15 @@
     transform: rotate(15deg) scale(1.1);
 }
 
+.tab-name {
+    text-align: center;
+}
+
 .tab-indicator {
     position: absolute;
     top: 0.5rem;
     left: 0.5rem;
-    width: calc(25% - 0.5rem);
+    width: calc(33.33% - 0.5rem);
     height: calc(100% - 1rem);
     background: linear-gradient(135deg, #8d87ba 0%, #6d67a0 100%);
     border-radius: 50px;
@@ -344,6 +351,7 @@
 .btn-card-action {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     padding: 0.8rem 1.5rem;
     background: linear-gradient(135deg, #8d87ba 0%, #6d67a0 100%);
@@ -355,6 +363,7 @@
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 12px rgba(141, 135, 186, 0.3);
+    text-align: center;
 }
 
 .btn-card-action:hover {

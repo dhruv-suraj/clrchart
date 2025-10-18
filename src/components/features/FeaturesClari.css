@@ -77,6 +77,10 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-clari:hover {

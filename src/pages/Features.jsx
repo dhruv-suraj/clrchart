@@ -1,8 +1,6 @@
 import React from 'react';
 import FeaturesHero from '../components/features/FeaturesHero';
 import FeaturesInteractive from '../components/features/FeaturesInteractive';
-import FeaturesUnified from '../components/features/FeaturesUnified';
-import FeaturesDecode from '../components/features/FeaturesDecode';
 import FeaturesClari from '../components/features/FeaturesClari';
 import FeaturesJourney from '../components/features/FeaturesJourney';
 import FeaturesDetailed from '../components/features/FeaturesDetailed';
@@ -14,10 +12,8 @@ const Features = () => {
     <>
       <FeaturesHero />
       <FeaturesInteractive />
-      <FeaturesUnified />
-      <FeaturesDecode />
       <FeaturesClari />
-      <FeaturesJourney />
+      {/* <FeaturesJourney /> */}
       <FeaturesDetailed />
       <FeaturesTestimonials />
       <CTA />

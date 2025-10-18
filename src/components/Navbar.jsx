@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import logo from '../assets/Saturate your mind.jpg';
+import logo from '../assets/ClearChartAI_Logo_Transparent saturate.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,24 +29,25 @@ const Navbar = () => {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-left">
         <Link to="/" className="logo">
-          <img className="logo-img" src={logo} alt="Saturate your mind" />
+          <img className="logo-img" src={logo} alt="ClearChartAI Logo" />
         </Link>
       </div>
       <div className="nav-center">
-        <div className="nav-links nav-links-center-left">
+        <div className="nav-links-container">
+          <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/features">Features</Link>
-        </div>
-        <Link to="/" className="logo-center">
-          ClearChartAI
-        </Link>
-        <div className="nav-links nav-links-center-right">
           <Link to="/blog">Blog</Link>
           <Link to="/contact">Contact</Link>
         </div>
       </div>
       <div className="nav-right">
-        <Link to="/dashboard" className="btn-primary">Try For Free</Link>
+        <Link to="/dashboard" className="btn-primary">
+          Try For Free
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </Link>
         <button className={`menu-btn ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
           <span></span>
           <span></span>

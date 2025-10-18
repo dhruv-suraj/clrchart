@@ -205,9 +205,11 @@
     box-shadow: 0 12px 30px rgba(102, 126, 234, 0.3);
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.75rem;
     position: relative;
     overflow: hidden;
+    text-align: center;
 }
 
 .btn-features-primary::before {
@@ -243,7 +245,9 @@
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.75rem;
+    text-align: center;
 }
 
 .btn-features-secondary:hover {
