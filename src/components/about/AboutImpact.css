@@ -22,13 +22,13 @@
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 4rem 0;
+    padding: 4rem 0 4rem 8rem;
 }
 
 /* Timeline Line */
 .timeline-line {
     position: absolute;
-    left: 175px;
+    left: 275px;
     top: 0;
     width: 2px;
     height: 100%;
@@ -50,7 +50,7 @@
 .timeline-item {
     position: relative;
     display: grid;
-    grid-template-columns: 150px 1fr;
+    grid-template-columns: 250px 1fr;
     gap: 4rem;
     align-items: center;
     margin-bottom: 6rem;
@@ -221,13 +221,17 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+    .impact-timeline {
+        padding: 4rem 0 4rem 4rem;
+    }
+
     .timeline-item {
-        grid-template-columns: 120px 1fr;
+        grid-template-columns: 180px 1fr;
         gap: 3rem;
     }
 
     .timeline-line {
-        left: 140px;
+        left: 200px;
     }
 
     .timeline-year {
@@ -245,19 +249,23 @@
         padding: 4rem 1.5rem;
     }
 
+    .impact-timeline {
+        padding: 4rem 0 4rem 2rem;
+    }
+
     .timeline-mode-label {
         left: 1.5rem;
         font-size: 0.75rem;
     }
 
     .timeline-item {
-        grid-template-columns: 80px 1fr;
+        grid-template-columns: 120px 1fr;
         gap: 2rem;
         margin-bottom: 4rem;
     }
 
     .timeline-line {
-        left: 90px;
+        left: 140px;
     }
 
     .timeline-year {
@@ -277,13 +285,17 @@
 }
 
 @media (max-width: 480px) {
+    .impact-timeline {
+        padding: 4rem 0 4rem 1rem;
+    }
+
     .timeline-item {
-        grid-template-columns: 60px 1fr;
+        grid-template-columns: 90px 1fr;
         gap: 1.5rem;
     }
 
     .timeline-line {
-        left: 65px;
+        left: 105px;
     }
 
     .timeline-year {

@@ -4,7 +4,6 @@ import Features from '../components/Features';
 import HowWeHelp from '../components/HowWeHelp';
 import Benefits from '../components/Benefits';
 import Mission from '../components/Mission';
-import Impact from '../components/Impact';
 import CTA from '../components/CTA';
 
 const Home = () => {
@@ -15,7 +14,6 @@ const Home = () => {
       <HowWeHelp />
       <Benefits />
       <Mission />
-      <Impact />
       <CTA />
     </>
   );

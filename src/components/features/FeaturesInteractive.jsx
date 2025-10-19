@@ -8,7 +8,9 @@ const FeaturesInteractive = () => {
   const [sliderPosition, setSliderPosition] = useState(0);
   const sectionRef = useScrollAnimation({ threshold: 0.2 });
   const statsRef = useRef(null);
+  const comparisonRef = useRef(null);
   const [statsAnimated, setStatsAnimated] = useState(false);
+  const [comparisonAnimated, setComparisonAnimated] = useState(false);
 
   const tabs = [
     { id: 0, name: 'Connect', },
@@ -114,6 +116,26 @@ const FeaturesInteractive = () => {
     return () => observer.disconnect();
   }, [statsAnimated]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !comparisonAnimated) {
+          setComparisonAnimated(true);
+          setTimeout(() => {
+            setSliderPosition(100);
+          }, 300);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (comparisonRef.current) {
+      observer.observe(comparisonRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [comparisonAnimated]);
+
   const currentFeatures = features.filter(f => f.tab === activeTab);
 
   return (
@@ -190,14 +212,12 @@ const FeaturesInteractive = () => {
       </div>
 
       {/* Interactive Comparison Slider */}
-      <div className="comparison-section">
+      <div className="comparison-section" ref={comparisonRef}>
         <h3 className="comparison-title">See the difference</h3>
         <p className="comparison-subtitle">Before and after using ClearChartAI</p>
 
         <div
           className="comparison-slider"
-          onMouseEnter={() => setSliderPosition(100)}
-          onMouseLeave={() => setSliderPosition(0)}
         >
           <div className="comparison-side before">
             <div className="comparison-content">

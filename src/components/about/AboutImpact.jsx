@@ -114,8 +114,6 @@ const AboutImpact = () => {
 
   return (
     <section className="about-impact">
-      <div className="timeline-mode-label">TIME MODE</div>
-
       <div className="impact-timeline" ref={timelineRef}>
         {/* Timeline line */}
         <div className="timeline-line">
@@ -134,11 +132,7 @@ const AboutImpact = () => {
                 <div className="impact-orb impact-orb-1"></div>
                 <div className="impact-orb impact-orb-2"></div>
               </div>
-              <div className="impact-card-icon">
-                {card.icon}
-              </div>
               <div className="impact-card-content">
-                <p className="impact-card-category">{card.category}</p>
                 <p className="impact-card-description">{card.description}</p>
                 <a href="#" className="impact-card-link">
                   {card.link} <span>→</span>

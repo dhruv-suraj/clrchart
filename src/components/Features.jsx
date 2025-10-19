@@ -10,6 +10,7 @@ const Features = () => {
   const sectionRef = useRef(null);
   const [typedText, setTypedText] = useState('');
   const [showAiResponse, setShowAiResponse] = useState(false);
+  const [showLoadingDots, setShowLoadingDots] = useState(false);
   const [isTypingTriggered, setIsTypingTriggered] = useState(false);
   const fullText = 'Hey Clari, did I have a heart attack?';
 
@@ -36,8 +37,10 @@ const Features = () => {
 
     setTypedText('');
     setShowAiResponse(false);
+    setShowLoadingDots(false);
 
     let currentIndex = 0;
+    let loadingTimeout;
     let responseTimeout;
 
     const typingInterval = setInterval(() => {
@@ -46,12 +49,19 @@ const Features = () => {
         currentIndex++;
       } else {
         clearInterval(typingInterval);
-        responseTimeout = setTimeout(() => setShowAiResponse(true), 500);
+        loadingTimeout = setTimeout(() => {
+          setShowLoadingDots(true);
+          responseTimeout = setTimeout(() => {
+            setShowLoadingDots(false);
+            setShowAiResponse(true);
+          }, 1000);
+        }, 500);
       }
     }, 50);
 
     return () => {
       clearInterval(typingInterval);
+      if (loadingTimeout) clearTimeout(loadingTimeout);
       if (responseTimeout) clearTimeout(responseTimeout);
     };
   }, [fullText, isTypingTriggered]);
@@ -86,12 +96,26 @@ const Features = () => {
               {typedText}
               {typedText.length < fullText.length && <span className="typing-cursor">|</span>}
             </div>
-            <div className={`chat-message ai-message ${showAiResponse ? 'visible' : ''}`}>
-              <div className="ai-avatar">AI</div>
-              <div className="ai-text">
-                No, you didn't have a heart attack. Doctors found an 80% blockage and placed a stent to keep blood flowing and to help prevent a future heart attack.
+            {showLoadingDots && (
+              <div className="chat-message ai-message visible">
+                <div className="ai-avatar">AI</div>
+                <div className="ai-text">
+                  <span className="loading-dots">
+                    <span className="dot">.</span>
+                    <span className="dot">.</span>
+                    <span className="dot">.</span>
+                  </span>
+                </div>
               </div>
-            </div>
+            )}
+            {showAiResponse && (
+              <div className="chat-message ai-message visible">
+                <div className="ai-avatar">AI</div>
+                <div className="ai-text">
+                  No, you didn't have a heart attack. Doctors found an 80% blockage and placed a stent to keep blood flowing and to help prevent a future heart attack.
+                </div>
+              </div>
+            )}
             <div className="chat-input-container">
               <button className="add-btn">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">

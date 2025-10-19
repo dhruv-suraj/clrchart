@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
-import logo from '../assets/ClearChartAI_Logo_Transparent saturate.png';
+import logo from '../assets/Purple Cush.png';
 
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false);

@@ -85,48 +85,14 @@ const ScrollGatherHero = () => {
 
   return (
     <div ref={containerRef} className="scroll-gather-container">
-      {/* Hero section with EKG background and floating items */}
+      {/* Hero section with floating items */}
       <div ref={heroContentRef} className="scroll-gather-hero">
-        {/* EKG Background */}
-        <div className="ekg-background">
-          <svg className="ekg-svg ekg-svg-1" viewBox="0 0 1200 100" preserveAspectRatio="none">
-            <path
-              d="M0,50 L200,50 L220,30 L240,70 L260,20 L280,80 L300,50 L1200,50"
-              fill="none"
-              stroke="url(#ekgGrad1)"
-              strokeWidth="2.5"
-            />
-            <defs>
-              <linearGradient id="ekgGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#667eea" stopOpacity="0.3" />
-                <stop offset="50%" stopColor="#667eea" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="#667eea" stopOpacity="0.3" />
-              </linearGradient>
-            </defs>
-          </svg>
-          <svg className="ekg-svg ekg-svg-2" viewBox="0 0 1200 100" preserveAspectRatio="none">
-            <path
-              d="M0,50 L180,50 L200,25 L220,75 L240,15 L260,85 L280,50 L1200,50"
-              fill="none"
-              stroke="url(#ekgGrad2)"
-              strokeWidth="2"
-            />
-            <defs>
-              <linearGradient id="ekgGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#764ba2" stopOpacity="0.2" />
-                <stop offset="50%" stopColor="#764ba2" stopOpacity="0.6" />
-                <stop offset="100%" stopColor="#764ba2" stopOpacity="0.2" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-
         {/* Central Logo/Text */}
         <div ref={logoRef} className="central-logo">
-          <div className="mission-badge">
+          {/* <div className="mission-badge">
             <span className="badge-dot"></span>
             <span>Our Mission</span>
-          </div>
+          </div> */}
           <h1 className="main-title">
             Decode your <span className="gradient-text">health</span>
           </h1>

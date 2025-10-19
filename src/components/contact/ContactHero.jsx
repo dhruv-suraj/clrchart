@@ -21,9 +21,9 @@ const ContactHero = () => {
       </div>
 
       <div className="contact-hero-container">
-        <div className={`contact-badge ${visible ? 'visible' : ''}`}>
+        {/* <div className={`contact-badge ${visible ? 'visible' : ''}`}>
           <span>Let's Talk</span>
-        </div>
+        </div> */}
         <h1 className={`contact-hero-title ${visible ? 'visible' : ''}`}>
           Connect with <span className="gradient-accent">us</span>
         </h1>

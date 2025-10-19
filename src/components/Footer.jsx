@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
-import logo from '../assets/ClearChartAI color.png';
+import logo from '../assets/Purple Cush.png';
 
 const Footer = () => {
   return (

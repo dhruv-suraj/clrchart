@@ -40,10 +40,6 @@ const Hero = () => {
 
       <div className="content-wrapper">
         <div className="hero-content">
-          <div className="hero-badge">
-            <span className="badge-dot"></span>
-            <span>AI-Powered Medical Clarity</span>
-          </div>
           <h1 className="hero-title">
             Clarity in <span className="gradient-text">Complexity</span>
           </h1>
