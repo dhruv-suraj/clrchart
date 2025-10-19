@@ -484,6 +484,7 @@
     overflow: hidden;
     cursor: ew-resize;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    user-select: none;
 }
 
 .comparison-side {
@@ -532,7 +533,8 @@
     width: 4px;
     background: #fff;
     transform: translateX(-50%);
-    pointer-events: none;
+    pointer-events: auto;
+    cursor: ew-resize;
     z-index: 10;
 }
 

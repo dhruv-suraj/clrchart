@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 import logo from '../assets/Purple Cush.png';
 
 const Footer = () => {
+  useEffect(() => {
+    // Check if script already exists to prevent duplicates
+    if (!document.querySelector('script[src="https://www.hipaatraining.com/badge-script"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://www.hipaatraining.com/badge-script';
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -43,6 +54,16 @@ const Footer = () => {
                   <path d="M19.582 4.616c-.23-.863-.907-1.54-1.77-1.77C16.254 2.5 10 2.5 10 2.5s-6.254 0-7.812.346c-.863.23-1.54.907-1.77 1.77C0 6.174 0 10 0 10s0 3.826.418 5.384c.23.863.907 1.54 1.77 1.77C3.746 17.5 10 17.5 10 17.5s6.254 0 7.812-.346c.863-.23 1.54-.907 1.77-1.77C20 13.826 20 10 20 10s0-3.826-.418-5.384zM8 13V7l5.197 3L8 13z"/>
                 </svg>
               </a>
+              <a href="https://www.hipaatraining.com/badge" className="social-link hipaa-link" aria-label="HIPAA Compliant" target="_blank" rel="noopener noreferrer">
+                <div
+                  className="hipaa-badge"
+                  data-href="https://www.hipaatraining.com/badge"
+                  data-color="orig"
+                  data-type="24"
+                  data-width="36px"
+                  data-height="36px"
+                ></div>
+              </a>
             </div>
           </div>
 
@@ -66,7 +87,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <p className="footer-copyright">© 2025 ClearChartAI,inc. Understand Your Health. Own Your Future.</p>
+          <p className="footer-copyright">© 2025 ClearChartAI,inc.</p>
           <div className="footer-legal">
             <a href="#" className="legal-link">Privacy policy</a>
             <a href="#" className="legal-link">Terms of service</a>

@@ -37,13 +37,13 @@
 .contact-label {
     font-size: 0.9rem;
     font-weight: 600;
-    color: #000;
+    color: #6B7A85;
     margin-bottom: 0.5rem;
 }
 
 .contact-email {
     font-size: 0.95rem;
-    color: #555;
+    color: #6B7A85;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -63,7 +63,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #555;
+    color: #6B7A85;
     transition: all 0.3s ease;
     border-radius: 8px;
 }
@@ -71,6 +71,24 @@
 .social-link:hover {
     color: #5FC4C4;
     background: rgba(93, 196, 196, 0.1);
+}
+
+.social-link.hipaa-link {
+    padding: 0;
+}
+
+.hipaa-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+}
+
+.hipaa-badge img {
+    width: 36px !important;
+    height: 36px !important;
+    object-fit: contain !important;
 }
 
 .footer-links {
@@ -86,7 +104,7 @@
 
 .footer-link {
     font-size: 0.95rem;
-    color: #555;
+    color: #6B7A85;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -103,7 +121,7 @@
 
 .footer-copyright {
     font-size: 0.9rem;
-    color: #777;
+    color: #6B7A85;
 }
 
 .footer-legal {
@@ -113,7 +131,7 @@
 
 .legal-link {
     font-size: 0.9rem;
-    color: #777;
+    color: #6B7A85;
     text-decoration: none;
     transition: color 0.3s ease;
 }

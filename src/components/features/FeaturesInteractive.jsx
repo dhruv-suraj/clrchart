@@ -116,28 +116,75 @@ const FeaturesInteractive = () => {
     return () => observer.disconnect();
   }, [statsAnimated]);
 
+  const [isScrollLocked, setIsScrollLocked] = useState(false);
+  const [animationComplete, setAnimationComplete] = useState(false);
+
+  const handleSliderDrag = (e) => {
+    if (!animationComplete) return;
+    const slider = comparisonRef.current;
+    if (!slider) return;
+
+    const rect = slider.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+    setSliderPosition(percentage);
+  };
+
+  const handleMouseDown = () => {
+    if (animationComplete) {
+      setComparisonAnimated(true);
+    }
+  };
+
+  const handleMouseUp = () => {
+    setComparisonAnimated(false);
+  };
+
+  useEffect(() => {
+    if (comparisonAnimated) {
+      window.addEventListener('mousemove', handleSliderDrag);
+      window.addEventListener('mouseup', handleMouseUp);
+
+      return () => {
+        window.removeEventListener('mousemove', handleSliderDrag);
+        window.removeEventListener('mouseup', handleMouseUp);
+      };
+    }
+  }, [comparisonAnimated, animationComplete]);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !comparisonAnimated) {
-          setComparisonAnimated(true);
+        if (entry.isIntersecting && !animationComplete) {
+          // Lock scroll
+          setIsScrollLocked(true);
+          document.body.style.overflow = 'hidden';
+
+          // Start animation after a brief delay
           setTimeout(() => {
             setSliderPosition(100);
-          }, 500);
-        } else if (!entry.isIntersecting && comparisonAnimated) {
-          setSliderPosition(0);
-          setComparisonAnimated(false);
+
+            // Unlock scroll after animation completes
+            setTimeout(() => {
+              setIsScrollLocked(false);
+              setAnimationComplete(true);
+              document.body.style.overflow = '';
+            }, 3500); // Match the animation duration (3.5 seconds)
+          }, 300);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.7 } // Trigger when 70% of the section is visible
     );
 
     if (comparisonRef.current) {
       observer.observe(comparisonRef.current);
     }
 
-    return () => observer.disconnect();
-  }, [comparisonAnimated]);
+    return () => {
+      observer.disconnect();
+      document.body.style.overflow = ''; // Cleanup
+    };
+  }, [animationComplete]);
 
   const currentFeatures = features.filter(f => f.tab === activeTab);
 
@@ -212,8 +259,7 @@ const FeaturesInteractive = () => {
 
         <div
           className="comparison-slider"
-          onMouseEnter={() => comparisonAnimated && setSliderPosition(0)}
-          onMouseLeave={() => comparisonAnimated && setSliderPosition(100)}
+          onClick={handleSliderDrag}
         >
           <div className="comparison-side before">
             <div className="comparison-content">
@@ -231,16 +277,16 @@ const FeaturesInteractive = () => {
             className="comparison-side after"
             style={{
               clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
-              transition: 'clip-path 0.8s ease-in-out'
+              transition: comparisonAnimated ? 'none' : (!animationComplete ? 'clip-path 3.5s ease-in-out' : 'clip-path 0.3s ease-out')
             }}
           >
             <div className="comparison-content">
               <h4>After</h4>
               <ul>
-                <li>Unified health dashboard</li>
-                <li>Plain language explanations</li>
-                <li>Automated data integration</li>
-                <li>AI-powered insights</li>
+                <li><strong>Unified health dashboard</strong></li>
+                <li><strong>Plain language explanations</strong></li>
+                <li><strong>Automated data integration</strong></li>
+                <li><strong>AI-powered insights</strong></li>
               </ul>
             </div>
           </div>
@@ -249,8 +295,10 @@ const FeaturesInteractive = () => {
             className="slider-handle"
             style={{
               left: `${sliderPosition}%`,
-              transition: 'left 0.8s ease-in-out'
+              transition: comparisonAnimated ? 'none' : (!animationComplete ? 'left 3.5s ease-in-out' : 'left 0.3s ease-out'),
+              cursor: animationComplete ? 'ew-resize' : 'default'
             }}
+            onMouseDown={handleMouseDown}
           >
             <div className="handle-line"></div>
             <div className="handle-circle">

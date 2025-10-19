@@ -109,7 +109,6 @@ const FeaturesDetailed = () => {
           <div className="detail-container">
             <div className="detail-text">
               <div className="detail-meta">
-                <span className="detail-number">{feature.number}</span>
                 <span className="detail-category">{feature.category}</span>
               </div>
               <h2 className="detail-title">{feature.title}</h2>

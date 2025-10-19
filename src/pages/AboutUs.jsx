@@ -1,6 +1,5 @@
 import React from 'react';
 import ScrollGatherHero from '../components/about/ScrollGatherHero';
-import AboutProcess from '../components/about/AboutProcess';
 import AboutTeam from '../components/about/AboutTeam';
 import AboutTimeline from '../components/about/AboutTimeline';
 import AboutPartners from '../components/about/AboutPartners';
@@ -14,9 +13,8 @@ const AboutUs = () => {
   return (
     <div style={{ minHeight: '100vh' }}>
       <ScrollGatherHero />
-      <AboutProcess />
-      <AboutTeam />
       <AboutTimeline />
+      <AboutTeam />
       <AboutPartners />
       <AboutImpact />
       <AboutFAQ />

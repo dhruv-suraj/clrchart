@@ -40,43 +40,74 @@ const ScrollGatherHero = () => {
       },
     });
 
-    // Part 1: Gather items to center (0 to 0.4)
+    // Stage 1: Move cards toward center while visible (0 to 0.4)
+    items.forEach((item, index) => {
+      const isTopRow = index < 2;
+      const isBottomRow = index > 3;
+      const isLeftSide = index === 0 || index === 2 || index === 4;
+
+      tl.to(item, {
+        x: isLeftSide ? '30vw' : '-30vw',
+        y: isTopRow ? '20vh' : (isBottomRow ? '-20vh' : 0),
+        scale: 0.7,
+        opacity: 1,
+        duration: 0.4,
+        ease: 'power2.inOut',
+      }, index * 0.03);
+    });
+
+    // Stage 2: Funnel all cards to center (0.4 to 0.7)
     tl.to(items, {
       x: 0,
       y: 0,
+      scale: 0.3,
+      opacity: 0.6,
+      duration: 0.3,
+      ease: 'power2.in',
+      stagger: {
+        amount: 0.15,
+        from: 'edges'
+      },
+    }, 0.4);
+
+    // Stage 3: Disappear into title (0.7 to 0.9)
+    tl.to(items, {
       scale: 0,
       opacity: 0,
-      duration: 0.4,
-      ease: 'power2.inOut',
-      stagger: 0.02,
-    }, 0);
+      duration: 0.2,
+      ease: 'power3.in',
+      stagger: {
+        amount: 0.1,
+        from: 'edges'
+      },
+    }, 0.7);
 
-    // Pulse the logo as items arrive (0.3 to 0.5)
+    // Pulse the logo as items arrive (0.6 to 0.8)
     tl.to(logo, {
-      scale: 1.15,
+      scale: 1.2,
       duration: 0.1,
       ease: 'power2.out',
-    }, 0.3);
+    }, 0.6);
 
     tl.to(logo, {
       scale: 1,
       duration: 0.1,
-      ease: 'power2.in',
-    }, 0.4);
+      ease: 'elastic.out(1, 0.5)',
+    }, 0.7);
 
-    // Part 2: Start radial wipe transition (0.5 to 1)
+    // Part 2: Start radial wipe transition (0.9 to 1.3)
     tl.to(nextSection, {
       clipPath: 'circle(150% at 50% 50%)',
-      duration: 0.5,
+      duration: 0.4,
       ease: 'power2.inOut',
-    }, 0.5);
+    }, 0.9);
 
-    // Fade out hero content during wipe (0.5 to 0.7)
+    // Fade out hero content during wipe (0.9 to 1.1)
     tl.to(heroContent, {
       opacity: 0,
       duration: 0.2,
       ease: 'power2.inOut',
-    }, 0.5);
+    }, 0.9);
 
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());

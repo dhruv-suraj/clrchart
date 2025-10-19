@@ -51,7 +51,7 @@
 }
 
 .btn-try-free {
-    background: #4A8E8B;
+    background: #5FC4C4;
     color: #fff;
     border: none;
     padding: 1rem 2.5rem;
@@ -60,7 +60,7 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(43, 122, 120, 0.3);
+    box-shadow: 0 4px 15px rgba(95, 196, 196, 0.3);
     text-align: center;
     display: inline-flex;
     align-items: center;
@@ -68,14 +68,14 @@
 }
 
 .btn-try-free:hover {
-    background: #2B7A78;
+    background: #4A9E9E;
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 25px rgba(43, 122, 120, 0.5);
+    box-shadow: 0 8px 25px rgba(95, 196, 196, 0.5);
 }
 
 .btn-try-free:active {
     transform: translateY(-1px) scale(1);
-    box-shadow: 0 4px 15px rgba(43, 122, 120, 0.3);
+    box-shadow: 0 4px 15px rgba(95, 196, 196, 0.3);
 }
 
 .btn-contact {
