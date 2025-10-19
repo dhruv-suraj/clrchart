@@ -87,7 +87,6 @@ const AboutImpact = () => {
     items.forEach((item) => {
       const year = item.querySelector('.timeline-year');
       const card = item.querySelector('.timeline-card');
-      const dot = item.querySelector('.timeline-dot');
 
       gsap.timeline({
         scrollTrigger: {
@@ -101,15 +100,10 @@ const AboutImpact = () => {
         { opacity: 0, x: -50 },
         { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out' }
       )
-      .fromTo(dot,
-        { scale: 0 },
-        { scale: 1, duration: 0.4, ease: 'back.out(1.7)' },
-        '-=0.3'
-      )
       .fromTo(card,
         { opacity: 0, x: 50 },
         { opacity: 1, x: 0, duration: 0.8, ease: 'power2.out' },
-        '-=0.4'
+        '-=0.3'
       );
     });
 
@@ -134,9 +128,6 @@ const AboutImpact = () => {
             {/* Title on the left */}
             <div className="timeline-year">{card.category}</div>
 
-            {/* Timeline dot */}
-            <div className="timeline-dot"></div>
-
             {/* Card on the right */}
             <div className="timeline-card" style={{ background: card.gradient }}>
               <div className="impact-card-background">
@@ -148,7 +139,6 @@ const AboutImpact = () => {
               </div>
               <div className="impact-card-content">
                 <p className="impact-card-category">{card.category}</p>
-                <h3 className="impact-card-title">{card.title}</h3>
                 <p className="impact-card-description">{card.description}</p>
                 <a href="#" className="impact-card-link">
                   {card.link} <span>→</span>

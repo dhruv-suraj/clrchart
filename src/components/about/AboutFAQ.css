@@ -63,11 +63,6 @@
     border: 2px solid transparent;
 }
 
-.faq-item:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-}
-
 .faq-item.active {
     border-color: rgba(102, 126, 234, 0.2);
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
@@ -87,10 +82,6 @@
     text-align: left;
     cursor: pointer;
     transition: all 0.3s ease;
-}
-
-.faq-question:hover {
-    color: #5FC4C4;
 }
 
 .faq-icon {

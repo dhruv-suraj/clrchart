@@ -42,27 +42,12 @@ const Login = () => {
             </p>
             <div className="login-features">
               <div className="login-feature-item">
-                <div className="feature-check">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
                 <span>Unified medical records</span>
               </div>
               <div className="login-feature-item">
-                <div className="feature-check">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
                 <span>AI-powered explanations</span>
               </div>
               <div className="login-feature-item">
-                <div className="feature-check">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
                 <span>HIPAA-compliant security</span>
               </div>
             </div>

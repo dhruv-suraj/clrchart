@@ -1,6 +1,5 @@
 import React from 'react';
 import ScrollGatherHero from '../components/about/ScrollGatherHero';
-import AnimatedStats from '../components/about/AnimatedStats';
 import AboutProcess from '../components/about/AboutProcess';
 import AboutTeam from '../components/about/AboutTeam';
 import AboutTimeline from '../components/about/AboutTimeline';
@@ -15,7 +14,6 @@ const AboutUs = () => {
   return (
     <div style={{ minHeight: '100vh' }}>
       <ScrollGatherHero />
-      <AnimatedStats />
       <AboutProcess />
       <AboutTeam />
       <AboutTimeline />

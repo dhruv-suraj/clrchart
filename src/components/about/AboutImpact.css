@@ -28,7 +28,7 @@
 /* Timeline Line */
 .timeline-line {
     position: absolute;
-    left: 200px;
+    left: 175px;
     top: 0;
     width: 2px;
     height: 100%;
@@ -50,8 +50,8 @@
 .timeline-item {
     position: relative;
     display: grid;
-    grid-template-columns: 150px 100px 1fr;
-    gap: 2rem;
+    grid-template-columns: 150px 1fr;
+    gap: 4rem;
     align-items: center;
     margin-bottom: 6rem;
 }
@@ -71,48 +71,13 @@
     font-style: normal;
 }
 
-/* Timeline Dot */
-.timeline-dot {
-    position: relative;
-    width: 20px;
-    height: 20px;
-    background: #5FA8A8;
-    border-radius: 50%;
-    border: 4px solid #FFFFFF;
-    box-shadow: 0 0 0 2px #5FA8A8;
-    z-index: 2;
-    margin-left: -9px;
-}
-
-.timeline-dot::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 30px;
-    height: 30px;
-    background: rgba(95, 168, 168, 0.2);
-    border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: translate(-50%, -50%) scale(1.5);
-        opacity: 0;
-    }
-}
 
 /* Timeline Card */
 .timeline-card {
     border-radius: 25px;
-    padding: 3rem 2.5rem;
-    min-height: 400px;
+    padding: 2rem 2rem;
+    min-height: 280px;
+    max-width: 600px;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -192,11 +157,16 @@
 }
 
 .impact-card-icon {
-    flex: 1;
+    flex: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.impact-card-icon svg {
+    width: 120px;
+    height: 120px;
 }
 
 .impact-card-content {
@@ -252,12 +222,12 @@
 /* Responsive Design */
 @media (max-width: 1024px) {
     .timeline-item {
-        grid-template-columns: 120px 80px 1fr;
-        gap: 1.5rem;
+        grid-template-columns: 120px 1fr;
+        gap: 3rem;
     }
 
     .timeline-line {
-        left: 160px;
+        left: 140px;
     }
 
     .timeline-year {
@@ -265,8 +235,8 @@
     }
 
     .timeline-card {
-        padding: 2.5rem 2rem;
-        min-height: 380px;
+        padding: 2rem 1.75rem;
+        min-height: 260px;
     }
 }
 
@@ -281,13 +251,13 @@
     }
 
     .timeline-item {
-        grid-template-columns: 80px 60px 1fr;
-        gap: 1rem;
+        grid-template-columns: 80px 1fr;
+        gap: 2rem;
         margin-bottom: 4rem;
     }
 
     .timeline-line {
-        left: 100px;
+        left: 90px;
     }
 
     .timeline-year {
@@ -296,29 +266,24 @@
     }
 
     .timeline-card {
-        padding: 2rem 1.5rem;
-        min-height: 360px;
+        padding: 1.75rem 1.5rem;
+        min-height: 240px;
     }
 
     .impact-card-title {
         font-size: 1.5rem;
     }
 
-    .timeline-dot {
-        width: 16px;
-        height: 16px;
-        margin-left: -7px;
-    }
 }
 
 @media (max-width: 480px) {
     .timeline-item {
-        grid-template-columns: 60px 40px 1fr;
-        gap: 0.75rem;
+        grid-template-columns: 60px 1fr;
+        gap: 1.5rem;
     }
 
     .timeline-line {
-        left: 70px;
+        left: 65px;
     }
 
     .timeline-year {
@@ -328,7 +293,7 @@
 
     .timeline-card {
         padding: 1.5rem 1.25rem;
-        min-height: 340px;
+        min-height: 220px;
     }
 
     .impact-card-title {
@@ -336,13 +301,8 @@
     }
 
     .impact-card-icon svg {
-        width: 150px;
-        height: 150px;
+        width: 100px;
+        height: 100px;
     }
 
-    .timeline-dot {
-        width: 14px;
-        height: 14px;
-        margin-left: -6px;
-    }
 }

@@ -31,12 +31,8 @@ const AboutFAQ = () => {
     }
   ];
 
-  const handleMouseEnter = (index) => {
-    setOpenIndex(index);
-  };
-
-  const handleMouseLeave = () => {
-    setOpenIndex(-1);
+  const handleToggle = (index) => {
+    setOpenIndex(openIndex === index ? -1 : index);
   };
 
   return (
@@ -53,11 +49,10 @@ const AboutFAQ = () => {
           <div
             key={index}
             className={`faq-item ${openIndex === index ? 'active' : ''}`}
-            onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={handleMouseLeave}
           >
             <button
               className="faq-question"
+              onClick={() => handleToggle(index)}
             >
               <span>{faq.question}</span>
               <span className="faq-icon">{openIndex === index ? '−' : '+'}</span>
