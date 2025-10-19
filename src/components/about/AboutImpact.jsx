@@ -11,7 +11,6 @@ const AboutImpact = () => {
 
   const impactCards = [
     {
-      year: '2024',
       category: 'Patients',
       title: 'Unlock your health story with confidence',
       description: 'Navigate medical complexity with personalized understanding',
@@ -32,7 +31,6 @@ const AboutImpact = () => {
       )
     },
     {
-      year: '2025',
       category: 'Providers',
       title: 'Elevate patient communication and engagement',
       description: 'Reduce repetitive explanations and improve clinical interactions',
@@ -51,7 +49,6 @@ const AboutImpact = () => {
       )
     },
     {
-      year: '2026',
       category: 'Insurers',
       title: 'Minimize healthcare costs through proactive literacy',
       description: 'Prevent unnecessary treatments and reduce administrative overhead',
@@ -134,8 +131,8 @@ const AboutImpact = () => {
         {/* Timeline items */}
         {impactCards.map((card, index) => (
           <div key={index} className="timeline-item">
-            {/* Year on the left */}
-            <div className="timeline-year">{card.year}</div>
+            {/* Title on the left */}
+            <div className="timeline-year">{card.category}</div>
 
             {/* Timeline dot */}
             <div className="timeline-dot"></div>
