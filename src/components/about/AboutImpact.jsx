@@ -60,15 +60,8 @@ const AboutImpact = () => {
     }
   ];
 
-  const headerRef = useScrollAnimation({ threshold: 0.2 });
-
   return (
     <section className="about-impact">
-      <div className="about-impact-header fade-in-up" ref={headerRef}>
-        <h2 className="about-impact-title">Transforming healthcare for everyone</h2>
-        <p className="about-impact-subtitle">Empowering health decisions through clear, actionable insights</p>
-      </div>
-
       <div className="impact-cards-grid">
         {impactCards.map((card, index) => {
           const cardRef = useScrollAnimation({ threshold: 0.2 });
