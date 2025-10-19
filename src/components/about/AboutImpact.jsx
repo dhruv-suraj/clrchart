@@ -134,9 +134,6 @@ const AboutImpact = () => {
               </div>
               <div className="impact-card-content">
                 <p className="impact-card-description">{card.description}</p>
-                <a href="#" className="impact-card-link">
-                  {card.link} <span>→</span>
-                </a>
               </div>
             </div>
           </div>

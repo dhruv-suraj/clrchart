@@ -186,23 +186,18 @@
 }
 
 .btn-submit {
-    background: #7DD3D3;
-    color: #000;
+    background: #5FC4C4;
+    color: #FFFFFF;
     border: none;
     padding: 1rem 3rem;
     border-radius: 30px;
     font-size: 1.05rem;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
     align-self: flex-start;
 }
 
-.btn-submit:hover {
-    background: #6BC2C2;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(93, 196, 196, 0.3);
-}
+/* No hover state - button remains completely static */
 
 @media (max-width: 1024px) {
     .form-title {

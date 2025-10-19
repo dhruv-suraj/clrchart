@@ -24,8 +24,8 @@ const ContactHero = () => {
         {/* <div className={`contact-badge ${visible ? 'visible' : ''}`}>
           <span>Let's Talk</span>
         </div> */}
-        <h1 className={`contact-hero-title ${visible ? 'visible' : ''}`}>
-          Connect with <span className="gradient-accent">us</span>
+        <h1 className={`contact-hero-title gradient-accent ${visible ? 'visible' : ''}`}>
+          Connect with us
         </h1>
         <p className={`contact-hero-subtitle ${visible ? 'visible' : ''}`}>
           We're here to help you understand your health records and answer your questions.

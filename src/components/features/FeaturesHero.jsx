@@ -45,10 +45,6 @@ const FeaturesHero = () => {
       </div>
 
       <div className="features-hero-container">
-        <div className={`features-badge ${titleVisible ? 'visible' : ''}`}>
-          <span className="badge-pulse"></span>
-          <span>AI-Powered</span>
-        </div>
         <h1 className={`features-hero-title ${titleVisible ? 'visible' : ''}`}>
           Medical records <span className="highlight-text">decoded</span>
         </h1>

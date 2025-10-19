@@ -195,8 +195,9 @@
     align-items: center;
     gap: 0.75rem;
     padding: 1rem 2.5rem;
-    background: #fff;
-    color: #000;
+    background: linear-gradient(135deg, #8d87ba 0%, #6d67a0 50%, #b3aed6 100%);
+    background-size: 200% 200%;
+    color: #FFFFFF;
     font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
@@ -213,10 +214,10 @@
 }
 
 .slide-cta:hover {
-    background: rgba(255, 255, 255, 0.9);
+    background-position: 100% 50%;
     gap: 1.2rem;
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(141, 135, 186, 0.5);
 }
 
 .slide-cta svg {

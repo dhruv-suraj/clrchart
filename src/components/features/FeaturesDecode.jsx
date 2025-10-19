@@ -69,12 +69,6 @@ const FeaturesDecode = () => {
           <p className="decode-description">
             Our Synapse Engine cuts through medical noise with precision. We turn complex data into meaningful insights that speak directly to your health journey.
           </p>
-          <div className="decode-actions">
-            <button className="btn-decode">Explore</button>
-            <a href="#" className="link-decode">
-              Connect <span>→</span>
-            </a>
-          </div>
         </div>
       </div>
     </section>

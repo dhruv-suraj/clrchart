@@ -7,9 +7,8 @@
 
 /* Scroll animations */
 .slide-in-left {
-    opacity: 0;
-    transform: translateX(-50px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .slide-in-left.visible {
@@ -18,9 +17,8 @@
 }
 
 .slide-in-right {
-    opacity: 0;
-    transform: translateX(50px);
-    transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .slide-in-right.visible {
@@ -121,33 +119,11 @@
     padding: 2rem 3rem;
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
     justify-content: center;
     min-width: 280px;
     position: relative;
-    overflow: hidden;
-}
-
-.logo-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-    transition: left 0.6s;
-}
-
-.logo-card:hover::before {
-    left: 100%;
-}
-
-.logo-card:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 1024px) {

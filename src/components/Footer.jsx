@@ -66,7 +66,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <p className="footer-copyright">© 2025 ClearChartAI. Understand Your Health. Own Your Future.</p>
+          <p className="footer-copyright">© 2025 ClearChartAI,inc. Understand Your Health. Own Your Future.</p>
           <div className="footer-legal">
             <a href="#" className="legal-link">Privacy policy</a>
             <a href="#" className="legal-link">Terms of service</a>

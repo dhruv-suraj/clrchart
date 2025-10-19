@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import './Features.css';
 import useScrollAnimation from '../hooks/useScrollAnimation';
+import logo from '../assets/Purple Cush.png';
 
 const Features = () => {
   const headerRef = useScrollAnimation({ threshold: 0.2 });
@@ -82,12 +82,6 @@ const Features = () => {
           <p className="features-description">
             No more guessing about your health. ClearChartAI turns complex reports into answers you can trust and act on.
           </p>
-          <Link to="/about" className="btn-learn-more">
-            Learn more
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </Link>
         </div>
 
         <div className="features-right scale-in" ref={rightRef}>
@@ -98,7 +92,7 @@ const Features = () => {
             </div>
             {showLoadingDots && (
               <div className="chat-message ai-message visible">
-                <div className="ai-avatar">AI</div>
+                <div className="ai-avatar"><img src={logo} alt="AI" /></div>
                 <div className="ai-text">
                   <span className="loading-dots">
                     <span className="dot">.</span>
@@ -110,7 +104,7 @@ const Features = () => {
             )}
             {showAiResponse && (
               <div className="chat-message ai-message visible">
-                <div className="ai-avatar">AI</div>
+                <div className="ai-avatar"><img src={logo} alt="AI" /></div>
                 <div className="ai-text">
                   No, you didn't have a heart attack. Doctors found an 80% blockage and placed a stent to keep blood flowing and to help prevent a future heart attack.
                 </div>

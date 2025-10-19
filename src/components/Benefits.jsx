@@ -34,9 +34,6 @@ const Benefits = () => {
 
           <div className="benefits-actions">
             <button className="btn-get-started">Get started</button>
-            <a href="#" className="link-learn-more">
-              Learn more <span>→</span>
-            </a>
           </div>
         </div>
 

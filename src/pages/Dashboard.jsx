@@ -1,171 +1,187 @@
 import React, { useState } from 'react';
 import './Dashboard.css';
+import logo from '../assets/Purple Cush.png';
 
 const Dashboard = () => {
-  const [chatMessages, setChatMessages] = useState([]);
+  const [activeMenu, setActiveMenu] = useState('Search');
+  const [chatMessages, setChatMessages] = useState([
+    {
+      sender: 'clari',
+      text: 'Hello! How can to assist you today with health records records today?'
+    }
+  ]);
   const [inputMessage, setInputMessage] = useState('');
 
-  const patientData = {
-    name: 'Jane Doe',
-    dob: '01/23/1970',
-    vitals: {
-      bloodPressure: '128/87',
-      heartRate: '79'
-    },
-    diagnoses: [
-      'Chronic Systolic Heart Failure',
-      'Coronary artery disease',
-      'Type 2 diabetes',
-      'Hypertension',
-      'Hyperlipidemia'
-    ],
-    medications: [
-      'Lisinopril 20mg daily',
-      'Metoprolol XL 50mg daily',
-      'Spironolactone 25mg daily',
-      'Atorvastatin 20mg daily',
-      'Aspirin 81mg daily'
-    ],
-    procedures: [
-      { name: 'Echocardiogram', date: '03/04/25' },
-      { name: 'Left Heart Catheterization', date: '01/02/25' },
-      { name: 'Nuclear Stress Test', date: '12/15/2025' }
-    ],
-    labWork: [
-      { name: 'Sodium', value: '138', unit: 'mEq/L', normal: true },
-      { name: 'Potassium', value: '3.9', unit: 'mEq/L', normal: true },
-      { name: 'BUN', value: '31', unit: 'mg/dL', normal: false },
-      { name: 'Creatinine', value: '1.12', unit: 'mg/dL', normal: true },
-      { name: 'Glucose', value: '146', unit: 'mg/dL', normal: false }
-    ]
-  };
+  const menuItems = [
+    { id: 'new-chat', name: 'New Chat', icon: 'plus' },
+    { id: 'search', name: 'Search', icon: 'search' },
+    { id: 'chat-history', name: 'Chat History', icon: 'history' },
+    { id: 'clock', name: '', icon: 'clock' },
+    { id: 'search-active', name: 'Search', icon: 'search', active: true },
+    { id: 'records', name: 'Records', icon: 'folder' },
+    { id: 'results', name: 'Results', icon: 'clipboard' },
+    { id: 'notes', name: 'Notes', icon: 'note' }
+  ];
+
+  const medicalRecords = [
+    { name: 'Echocardiogram', date: '01/18/22', icon: 'file' },
+    { name: 'Glucose Panel 1st visit', date: '12/05/24', icon: 'file' },
+    { name: 'Primary Physical Annual', date: '11/12/24', icon: 'file' },
+    { name: 'Primary Physical Report', date: '01/16/25', icon: 'file', badge: 'pending' },
+    { name: 'Prescription: Lisinopril 10/01 MG', date: '09/08/24', icon: 'file' },
+    { name: 'Therapy Notes', date: '12/01/24', icon: 'file' }
+  ];
+
+  const suggestedTopics = [
+    'Summarize my latest labs',
+    'Explain my diagnosis',
+    'Schedule follow-up'
+  ];
 
   const handleSendMessage = (e) => {
     e.preventDefault();
     if (inputMessage.trim()) {
       setChatMessages([...chatMessages, { text: inputMessage, sender: 'user' }]);
       setInputMessage('');
-      // Simulate bot response
-      setTimeout(() => {
-        setChatMessages(prev => [...prev, {
-          text: 'Thank you for your question. I can help you understand your medical records and health information.',
-          sender: 'bot'
-        }]);
-      }, 1000);
     }
   };
 
+  const renderIcon = (iconType) => {
+    const icons = {
+      plus: <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3V13M3 8H13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>,
+      search: <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="4" stroke="currentColor" strokeWidth="1.5"/><path d="M10 10L13 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>,
+      history: <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3V8L11 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/><circle cx="8" cy="8" r="5" stroke="currentColor" strokeWidth="1.5"/></svg>,
+      clock: <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" strokeWidth="1.5"/><path d="M8 4V8L10.5 9.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>,
+      folder: <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4H14V13H2V4Z" stroke="currentColor" strokeWidth="1.5"/><path d="M2 4L6 2H10L14 4" stroke="currentColor" strokeWidth="1.5"/></svg>,
+      clipboard: <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="4" y="2" width="8" height="12" rx="1" stroke="currentColor" strokeWidth="1.5"/><path d="M6 2H10V4H6V2Z" stroke="currentColor" strokeWidth="1.5"/></svg>,
+      note: <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 2H10L13 5V14H3V2Z" stroke="currentColor" strokeWidth="1.5"/><path d="M10 2V5H13" stroke="currentColor" strokeWidth="1.5"/></svg>,
+      file: <svg width="16" height="16" viewBox="0 0 16 16" fill="#7C8DB5"><rect x="4" y="2" width="8" height="12" rx="1"/><rect x="6" y="4" width="4" height="1" fill="white"/><rect x="6" y="6" width="4" height="1" fill="white"/><rect x="6" y="8" width="3" height="1" fill="white"/></svg>
+    };
+    return icons[iconType] || null;
+  };
+
   return (
-    <div className="dashboard">
-      <div className="dashboard-header drop-header">
-        <div className="logo-section">
-          <div className="logo-icon">
-            <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="15" y="10" width="8" height="30" rx="2" fill="#4ECDC4"/>
-              <rect x="10" y="20" width="18" height="8" rx="2" fill="#4ECDC4"/>
-              <path d="M19 15 Q 19 10, 24 12 T 28 18" stroke="#4ECDC4" strokeWidth="2" fill="none"/>
+    <div className="dashboard-new">
+      {/* Left Sidebar */}
+      <aside className="dashboard-sidebar">
+        <div className="sidebar-header">
+          <img src={logo} alt="ClearChartAI" className="sidebar-logo" />
+          <h1 className="sidebar-brand">ClearChartAI</h1>
+        </div>
+
+        <nav className="sidebar-nav">
+          {menuItems.map((item) => (
+            <button
+              key={item.id}
+              className={`nav-item ${item.active ? 'active' : ''}`}
+              onClick={() => setActiveMenu(item.name)}
+            >
+              <span className="nav-icon">{renderIcon(item.icon)}</span>
+              {item.name && <span className="nav-label">{item.name}</span>}
+            </button>
+          ))}
+        </nav>
+
+        <div className="sidebar-footer">
+          <button className="btn-get-records">
+            Get Medical Records
+          </button>
+          <button className="btn-settings">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <circle cx="8" cy="8" r="2" stroke="currentColor" strokeWidth="1.5"/>
+              <path d="M8 2V3M8 13V14M14 8H13M3 8H2M11.5 11.5L10.8 10.8M5.2 5.2L4.5 4.5M11.5 4.5L10.8 5.2M5.2 10.8L4.5 11.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
             </svg>
-          </div>
-          <h1 className="dashboard-title">ClearChartAI</h1>
+            Settings
+          </button>
         </div>
-      </div>
+      </aside>
 
-      <div className="dashboard-content">
-        {/* Left Column - Patient Info */}
-        <div className="left-column">
-          <div className="card patient-info-card drop-card delay-1">
-            <h2 className="patient-name">{patientData.name}</h2>
-            <p className="patient-dob"><strong>DOB:</strong> {patientData.dob}</p>
-
-            <div className="vitals-section">
-              <h3>Most recent Vitals:</h3>
-              <p>Blood Pressure {patientData.vitals.bloodPressure}</p>
-              <p>Heart Rate {patientData.vitals.heartRate}</p>
-            </div>
-
-            <div className="diagnoses-section">
-              <h3>Diagnoses</h3>
-              <ul>
-                {patientData.diagnoses.map((diagnosis, index) => (
-                  <li key={index}>{diagnosis}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
+      {/* Main Chat Area */}
+      <main className="dashboard-main">
+        <div className="chat-header">
+          <h2 className="chat-title">Chat Box</h2>
+          <button className="chat-menu-btn">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 6H10.01M10 10H10.01M10 14H10.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+          </button>
         </div>
 
-        {/* Center Column - ChatBot and Medications */}
-        <div className="center-column">
-          <div className="card chatbot-card drop-card delay-2">
-            <h2>ChatBot</h2>
-            <p className="chatbot-subtitle">Ask Clari about your health</p>
+        <div className="chat-content">
+          <h1 className="chat-heading">Ask Clari about your medical records</h1>
 
-            <div className="chat-messages">
-              {chatMessages.length === 0 ? (
-                <p className="chat-placeholder">Start a conversation with Clari...</p>
-              ) : (
-                chatMessages.map((msg, index) => (
-                  <div key={index} className={`message ${msg.sender}`}>
-                    {msg.text}
-                  </div>
-                ))
-              )}
+          <div className="chat-messages-area">
+            {chatMessages.map((msg, index) => (
+              <div key={index} className={`chat-message ${msg.sender}`}>
+                <div className="message-bubble">
+                  {msg.text}
+                </div>
+              </div>
+            ))}
+
+            <div className="suggested-action">
+              <button className="action-card">
+                Explain medication interactions
+              </button>
             </div>
+          </div>
 
+          <div className="chat-input-section">
             <form onSubmit={handleSendMessage} className="chat-input-form">
               <input
                 type="text"
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
-                placeholder="Type your message..."
+                placeholder="Type your question..."
                 className="chat-input"
               />
-              <button type="submit" className="chat-send-btn">Send</button>
             </form>
-          </div>
 
-          <div className="card medications-card drop-card delay-4">
-            <h3>Medications</h3>
-            <ul>
-              {patientData.medications.map((medication, index) => (
-                <li key={index}>{medication}</li>
+            <div className="suggested-topics">
+              {suggestedTopics.map((topic, index) => (
+                <button key={index} className="topic-btn">
+                  {topic}
+                </button>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
+      </main>
 
-        {/* Right Column - Medical Records, Procedures, Lab Work */}
-        <div className="right-column">
-          <div className="card medical-records-card drop-card delay-3">
-            <button className="medical-records-btn">
-              Ask Clari to get your medical records
+      {/* Right Sidebar - Records */}
+      <aside className="dashboard-records">
+        <div className="records-header">
+          <h2 className="records-title">Your Records</h2>
+        </div>
+
+        <div className="records-list">
+          {medicalRecords.map((record, index) => (
+            <div key={index} className="record-item">
+              <div className="record-icon">
+                {renderIcon(record.icon)}
+              </div>
+              <div className="record-info">
+                <h3 className="record-name">{record.name}</h3>
+                <p className="record-date">{record.date}</p>
+              </div>
+              {record.badge && (
+                <span className="record-badge">{record.badge}</span>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="records-footer">
+          <div className="sync-status">
+            <span className="sync-count">16 Documents Synced</span>
+            <button className="sync-btn">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M2 8H14M14 8L11 5M14 8L11 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </button>
           </div>
-
-          <div className="card procedures-card drop-card delay-5">
-            <h3>Procedures/Imaging</h3>
-            <ul>
-              {patientData.procedures.map((procedure, index) => (
-                <li key={index}>
-                  {procedure.name} {procedure.date}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="card labwork-card drop-card delay-6">
-            <h3>Last Lab Work</h3>
-            <ul className="lab-results">
-              {patientData.labWork.map((lab, index) => (
-                <li key={index} className={!lab.normal ? 'abnormal' : ''}>
-                  <span className="lab-name">{lab.name}</span>
-                  <span className="lab-value">{lab.value} {lab.unit}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
-      </div>
+      </aside>
     </div>
   );
 };

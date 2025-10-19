@@ -194,6 +194,7 @@
     align-self: flex-end;
     margin-left: auto;
     box-shadow: 0 8px 20px rgba(102, 126, 234, 0.25);
+    font-weight: bold;
 }
 
 .typing-cursor {
@@ -228,7 +229,7 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #8d87ba 0%, #6d67a0 100%);
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -236,6 +237,13 @@
     font-weight: 700;
     color: white;
     flex-shrink: 0;
+    overflow: hidden;
+}
+
+.ai-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .ai-text {
@@ -302,6 +310,7 @@
 
 .chat-input::placeholder {
     color: #999;
+    font-weight: bold;
 }
 
 .mic-btn {

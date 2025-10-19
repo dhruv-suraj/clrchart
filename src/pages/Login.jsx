@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import logo from '../assets/Purple Cush.png';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [isSignUp, setIsSignUp] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
@@ -22,11 +23,15 @@ const Login = () => {
     e.preventDefault();
     // Handle form submission
     console.log('Form submitted:', formData);
+    // Navigate to dashboard after sign in
+    navigate('/dashboard');
   };
 
   const handleGoogleLogin = () => {
     // Handle Google login
     console.log('Google login clicked');
+    // Navigate to dashboard after Google login
+    navigate('/dashboard');
   };
 
   return (
@@ -38,7 +43,7 @@ const Login = () => {
             <img src={logo} alt="ClearChartAI Logo" className="login-logo" />
             <h1 className="login-brand-title">ClearChartAI</h1>
             <p className="login-brand-subtitle">
-              Transform medical complexity into clear understanding
+            Understand Your Health Own Your Future
             </p>
             <div className="login-features">
               <div className="login-feature-item">

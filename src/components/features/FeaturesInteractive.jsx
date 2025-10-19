@@ -123,10 +123,13 @@ const FeaturesInteractive = () => {
           setComparisonAnimated(true);
           setTimeout(() => {
             setSliderPosition(100);
-          }, 300);
+          }, 500);
+        } else if (!entry.isIntersecting && comparisonAnimated) {
+          setSliderPosition(0);
+          setComparisonAnimated(false);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.3 }
     );
 
     if (comparisonRef.current) {
@@ -149,10 +152,9 @@ const FeaturesInteractive = () => {
 
       {/* Header Section */}
       <div className="interactive-header">
-        <span className="interactive-badge">✨ Powerful Features</span>
         <h2 className="interactive-title">
           Everything you need to
-          <span className="gradient-text-animated"> master your health</span>
+          <span className="gradient-text-animated"> Connect, Decode, and Empower</span>
         </h2>
         <p className="interactive-subtitle">
           Discover the tools and technologies that make ClearChartAI the most comprehensive health data platform
@@ -199,14 +201,6 @@ const FeaturesInteractive = () => {
                 </li>
               ))}
             </ul>
-            <div className="card-footer">
-              <button className="btn-card-action">
-                Explore
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-            </div>
           </div>
         ))}
       </div>
@@ -218,15 +212,17 @@ const FeaturesInteractive = () => {
 
         <div
           className="comparison-slider"
+          onMouseEnter={() => comparisonAnimated && setSliderPosition(0)}
+          onMouseLeave={() => comparisonAnimated && setSliderPosition(100)}
         >
           <div className="comparison-side before">
             <div className="comparison-content">
               <h4>Before</h4>
               <ul>
-                <li>❌ Scattered medical records</li>
-                <li>❌ Confusing medical jargon</li>
-                <li>❌ Manual data tracking</li>
-                <li>❌ Limited health insights</li>
+                <li>Scattered medical records</li>
+                <li>Confusing medical jargon</li>
+                <li>Manual data tracking</li>
+                <li>Limited health insights</li>
               </ul>
             </div>
           </div>
@@ -241,10 +237,10 @@ const FeaturesInteractive = () => {
             <div className="comparison-content">
               <h4>After</h4>
               <ul>
-                <li>✅ Unified health dashboard</li>
-                <li>✅ Plain language explanations</li>
-                <li>✅ Automated data integration</li>
-                <li>✅ AI-powered insights</li>
+                <li>Unified health dashboard</li>
+                <li>Plain language explanations</li>
+                <li>Automated data integration</li>
+                <li>AI-powered insights</li>
               </ul>
             </div>
           </div>

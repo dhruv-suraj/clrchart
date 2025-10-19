@@ -33,12 +33,6 @@ const FeaturesClari = () => {
               <span>Medication insights revealed</span>
             </li>
           </ul>
-          <div className="clari-actions">
-            <button className="btn-clari">Discover</button>
-            <a href="#" className="link-clari">
-              Connect <span>→</span>
-            </a>
-          </div>
         </div>
 
         <div className="clari-visual">

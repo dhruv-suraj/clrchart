@@ -14,9 +14,6 @@ const AboutPartners = () => {
           <p className="partners-description">
             Strategic collaborations driving innovation in medical data understanding and patient empowerment
           </p>
-          <div className="partners-actions">
-            <button className="btn-partners">Partners</button>
-          </div>
         </div>
 
         <div className="partners-logos slide-in-right" ref={logosRef}>

@@ -330,12 +330,18 @@
 }
 
 .about-gradient-text {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background: linear-gradient(135deg, #8d87ba 0%, #6d67a0 50%, #b3aed6 100%) !important;
     background-size: 200% 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
     animation: gradientShift 8s ease infinite;
+}
+
+.about-hero-title .kinetic-word:not(.about-gradient-text) {
+    color: #000 !important;
+    background: none !important;
+    -webkit-text-fill-color: #000 !important;
 }
 
 @keyframes gradientShift {

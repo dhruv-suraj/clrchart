@@ -41,7 +41,7 @@ const Hero = () => {
       <div className="content-wrapper">
         <div className="hero-content">
           <h1 className="hero-title">
-            Clarity in <span className="gradient-text">Complexity</span>
+            <span className="gradient-text">Clarity</span> in Complexity
           </h1>
           <p className="hero-subtitle">
             Your records, unified and simplified. Clear explanations, real understanding, no medical degree needed.

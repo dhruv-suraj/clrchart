@@ -38,6 +38,7 @@
     width: 68px;
     height: 68px;
     object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
 }
 
 .nav-center {
@@ -80,7 +81,7 @@
 }
 
 .navbar.scrolled .nav-links-container {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.75);
     border-color: rgba(125, 211, 211, 0.4);
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
@@ -99,7 +100,8 @@
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #7DD3D3 0%, #5FC4C4 100%);
+    background: linear-gradient(135deg, #8d87ba 0%, #6d67a0 50%, #b3aed6 100%);
+    background-size: 200% 200%;
     color: #FFFFFF;
     border: none;
     padding: 0.75rem 2rem;
@@ -113,7 +115,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    box-shadow: 0 4px 12px rgba(125, 211, 211, 0.3);
+    animation: purpleOscillate 3s ease-in-out infinite;
 }
 
 .btn-primary svg {
@@ -121,9 +123,7 @@
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #6BC2C2 0%, #4FB5B5 100%);
     transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 8px 20px rgba(125, 211, 211, 0.4);
 }
 
 .btn-primary:hover svg {
@@ -132,7 +132,6 @@
 
 .btn-primary:active {
     transform: translateY(0) scale(1);
-    box-shadow: 0 4px 12px rgba(125, 211, 211, 0.3);
 }
 
 .menu-btn {
@@ -222,6 +221,15 @@
     }
     to {
         opacity: 1;
+    }
+}
+
+@keyframes purpleOscillate {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
     }
 }
 

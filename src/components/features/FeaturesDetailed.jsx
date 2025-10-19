@@ -114,19 +114,6 @@ const FeaturesDetailed = () => {
               </div>
               <h2 className="detail-title">{feature.title}</h2>
               <p className="detail-description">{feature.description}</p>
-              <div className="detail-actions">
-                {feature.buttons.map((button, btnIndex) => (
-                  <React.Fragment key={btnIndex}>
-                    {btnIndex === 0 ? (
-                      <button className="btn-detail">{button}</button>
-                    ) : (
-                      <a href="#" className="link-detail">
-                        {button} <span>→</span>
-                      </a>
-                    )}
-                  </React.Fragment>
-                ))}
-              </div>
             </div>
 
             <div className="detail-visual">

@@ -14,7 +14,7 @@ import './App.css';
 
 function App() {
   const location = useLocation();
-  const hideNavbarFooter = location.pathname === '/login';
+  const hideNavbarFooter = location.pathname === '/login' || location.pathname === '/dashboard';
 
   useEffect(() => {
     window.scrollTo(0, 0);

@@ -146,13 +146,19 @@ const AboutHero = () => {
           {titleWords.map((word, index) => (
             <span
               key={index}
-              className="kinetic-word"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="about-gradient-text kinetic-word"
+              style={{
+                animationDelay: `${index * 0.1}s`,
+                background: 'linear-gradient(135deg, #8d87ba 0%, #6d67a0 50%, #b3aed6 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}
             >
               {word}{' '}
             </span>
           ))}
-          <span className="about-gradient-text kinetic-word" style={{ animationDelay: '0.2s' }}>
+          <span className="kinetic-word" style={{ animationDelay: '0.2s', color: '#000 !important', WebkitTextFillColor: '#000' }}>
             health
           </span>
         </h1>

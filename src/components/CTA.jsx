@@ -2,11 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './CTA.css';
 import useScrollAnimation from '../hooks/useScrollAnimation';
-import ctaImage from '../assets/ChatGPT Image Oct 4, 2025, 05_05_03 PM.png';
 
 const CTA = () => {
   const contentRef = useScrollAnimation({ threshold: 0.2 });
-  const visualRef = useScrollAnimation({ threshold: 0.2 });
 
   return (
     <section className="cta-section">
@@ -17,10 +15,6 @@ const CTA = () => {
           <button className="btn-try-free">Try for Free</button>
           <Link to="/contact" className="btn-contact">Contact us</Link>
         </div>
-      </div>
-
-      <div className="cta-visual scale-in" ref={visualRef}>
-        <img src={ctaImage} alt="Health visualization" />
       </div>
     </section>
   );
