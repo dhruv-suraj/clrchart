@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './AboutImpact.css';
-import useScrollAnimation from '../../hooks/useScrollAnimation';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const AboutImpact = () => {
+  const timelineRef = useRef(null);
+  const progressLineRef = useRef(null);
+
   const impactCards = [
     {
+      year: '2024',
       category: 'Patients',
       title: 'Unlock your health story with confidence',
       description: 'Navigate medical complexity with personalized understanding',
@@ -25,6 +32,7 @@ const AboutImpact = () => {
       )
     },
     {
+      year: '2025',
       category: 'Providers',
       title: 'Elevate patient communication and engagement',
       description: 'Reduce repetitive explanations and improve clinical interactions',
@@ -43,6 +51,7 @@ const AboutImpact = () => {
       )
     },
     {
+      year: '2026',
       category: 'Insurers',
       title: 'Minimize healthcare costs through proactive literacy',
       description: 'Prevent unnecessary treatments and reduce administrative overhead',
@@ -60,13 +69,79 @@ const AboutImpact = () => {
     }
   ];
 
+  useEffect(() => {
+    const timeline = timelineRef.current;
+    const progressLine = progressLineRef.current;
+    const items = timeline.querySelectorAll('.timeline-item');
+
+    // Animate progress line based on scroll
+    gsap.to(progressLine, {
+      height: '100%',
+      ease: 'none',
+      scrollTrigger: {
+        trigger: timeline,
+        start: 'top center',
+        end: 'bottom center',
+        scrub: 1,
+      },
+    });
+
+    // Animate each timeline item
+    items.forEach((item) => {
+      const year = item.querySelector('.timeline-year');
+      const card = item.querySelector('.timeline-card');
+      const dot = item.querySelector('.timeline-dot');
+
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 75%',
+          end: 'top 25%',
+          toggleActions: 'play none none reverse',
+        },
+      })
+      .fromTo(year,
+        { opacity: 0, x: -50 },
+        { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out' }
+      )
+      .fromTo(dot,
+        { scale: 0 },
+        { scale: 1, duration: 0.4, ease: 'back.out(1.7)' },
+        '-=0.3'
+      )
+      .fromTo(card,
+        { opacity: 0, x: 50 },
+        { opacity: 1, x: 0, duration: 0.8, ease: 'power2.out' },
+        '-=0.4'
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
   return (
     <section className="about-impact">
-      <div className="impact-cards-grid">
-        {impactCards.map((card, index) => {
-          const cardRef = useScrollAnimation({ threshold: 0.2 });
-          return (
-            <div key={index} className="impact-card scale-in" ref={cardRef} style={{ background: card.gradient, transitionDelay: `${index * 0.15}s` }}>
+      <div className="timeline-mode-label">TIME MODE</div>
+
+      <div className="impact-timeline" ref={timelineRef}>
+        {/* Timeline line */}
+        <div className="timeline-line">
+          <div className="timeline-progress" ref={progressLineRef}></div>
+        </div>
+
+        {/* Timeline items */}
+        {impactCards.map((card, index) => (
+          <div key={index} className="timeline-item">
+            {/* Year on the left */}
+            <div className="timeline-year">{card.year}</div>
+
+            {/* Timeline dot */}
+            <div className="timeline-dot"></div>
+
+            {/* Card on the right */}
+            <div className="timeline-card" style={{ background: card.gradient }}>
               <div className="impact-card-background">
                 <div className="impact-orb impact-orb-1"></div>
                 <div className="impact-orb impact-orb-2"></div>
@@ -83,8 +158,8 @@ const AboutImpact = () => {
                 </a>
               </div>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
     </section>
   );

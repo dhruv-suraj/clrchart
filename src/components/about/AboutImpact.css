@@ -1,67 +1,130 @@
 .about-impact {
-    padding: 4rem 3rem 6rem;
+    padding: 6rem 3rem;
     background: #FFFFFF;
     position: relative;
     overflow: hidden;
 }
 
-/* Scroll animations */
-.fade-in-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.scale-in {
-    opacity: 0;
-    transform: scale(0.95);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.scale-in.visible {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.about-impact-header {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.about-impact-label {
-    font-size: 0.9rem;
-    font-weight: 500;
+/* Timeline Mode Label */
+.timeline-mode-label {
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
     color: #666;
-    margin-bottom: 1rem;
-    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
-.about-impact-title {
-    font-size: 3.5rem;
-    font-weight: 600;
-    color: #000;
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
-}
-
-.about-impact-subtitle {
-    font-size: 1.15rem;
-    color: #555;
-    max-width: 700px;
+/* Timeline Container */
+.impact-timeline {
+    position: relative;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 4rem 0;
 }
 
-.impact-cards-grid {
+/* Timeline Line */
+.timeline-line {
+    position: absolute;
+    left: 200px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: #E0E0E0;
+    z-index: 1;
+}
+
+.timeline-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(180deg, #5FA8A8 0%, #7DD3D3 100%);
+    box-shadow: 0 0 10px rgba(95, 168, 168, 0.5);
+}
+
+/* Timeline Item */
+.timeline-item {
+    position: relative;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 150px 100px 1fr;
     gap: 2rem;
-    max-width: 1400px;
-    margin: 0 auto;
+    align-items: center;
+    margin-bottom: 6rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Timeline Year */
+.timeline-year {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #000;
+    text-align: right;
+    padding-right: 2rem;
+    line-height: 1;
+    font-style: italic;
+}
+
+/* Timeline Dot */
+.timeline-dot {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background: #5FA8A8;
+    border-radius: 50%;
+    border: 4px solid #FFFFFF;
+    box-shadow: 0 0 0 2px #5FA8A8;
+    z-index: 2;
+    margin-left: -9px;
+}
+
+.timeline-dot::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: rgba(95, 168, 168, 0.2);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Timeline Card */
+.timeline-card {
+    border-radius: 25px;
+    padding: 3rem 2.5rem;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #FFFFFF;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-card:hover {
+    transform: translateX(10px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
 }
 
 .impact-card {
@@ -186,20 +249,24 @@
     transform: translateX(4px);
 }
 
+/* Responsive Design */
 @media (max-width: 1024px) {
-    .about-impact-title {
-        font-size: 3rem;
+    .timeline-item {
+        grid-template-columns: 120px 80px 1fr;
+        gap: 1.5rem;
     }
 
-    .impact-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .timeline-line {
+        left: 160px;
     }
 
-    .impact-card:last-child {
-        grid-column: 1 / -1;
-        max-width: 600px;
-        margin: 0 auto;
-        width: 100%;
+    .timeline-year {
+        font-size: 3.5rem;
+    }
+
+    .timeline-card {
+        padding: 2.5rem 2rem;
+        min-height: 380px;
     }
 }
 
@@ -208,38 +275,60 @@
         padding: 4rem 1.5rem;
     }
 
-    .about-impact-title {
+    .timeline-mode-label {
+        left: 1.5rem;
+        font-size: 0.75rem;
+    }
+
+    .timeline-item {
+        grid-template-columns: 80px 60px 1fr;
+        gap: 1rem;
+        margin-bottom: 4rem;
+    }
+
+    .timeline-line {
+        left: 100px;
+    }
+
+    .timeline-year {
         font-size: 2.5rem;
+        padding-right: 1rem;
     }
 
-    .impact-cards-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .impact-card {
-        padding: 2.5rem 2rem;
-        min-height: 400px;
-    }
-
-    .impact-card:last-child {
-        grid-column: auto;
-        max-width: 100%;
+    .timeline-card {
+        padding: 2rem 1.5rem;
+        min-height: 360px;
     }
 
     .impact-card-title {
         font-size: 1.5rem;
     }
+
+    .timeline-dot {
+        width: 16px;
+        height: 16px;
+        margin-left: -7px;
+    }
 }
 
 @media (max-width: 480px) {
-    .about-impact-title {
-        font-size: 2rem;
+    .timeline-item {
+        grid-template-columns: 60px 40px 1fr;
+        gap: 0.75rem;
     }
 
-    .impact-card {
-        padding: 2rem 1.5rem;
-        min-height: 380px;
+    .timeline-line {
+        left: 70px;
+    }
+
+    .timeline-year {
+        font-size: 2rem;
+        padding-right: 0.5rem;
+    }
+
+    .timeline-card {
+        padding: 1.5rem 1.25rem;
+        min-height: 340px;
     }
 
     .impact-card-title {
@@ -249,5 +338,11 @@
     .impact-card-icon svg {
         width: 150px;
         height: 150px;
+    }
+
+    .timeline-dot {
+        width: 14px;
+        height: 14px;
+        margin-left: -6px;
     }
 }
