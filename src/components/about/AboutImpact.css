@@ -1,6 +1,6 @@
 .about-impact {
     padding: 6rem 3rem;
-    background: #FFFFFF;
+    background: linear-gradient(135deg, #E5F2F2 0%, #D0E8E7 100%);
     position: relative;
     overflow: hidden;
 }
@@ -66,7 +66,7 @@
     font-weight: 700;
     color: #6B7A85;
     text-align: right;
-    padding-right: 2rem;
+    padding-right: 8rem;
     line-height: 1.2;
     font-style: normal;
 }
@@ -236,6 +236,7 @@
 
     .timeline-year {
         font-size: 1.75rem;
+        padding-right: 4rem;
     }
 
     .timeline-card {
@@ -270,7 +271,7 @@
 
     .timeline-year {
         font-size: 1.5rem;
-        padding-right: 1rem;
+        padding-right: 3rem;
     }
 
     .timeline-card {
@@ -300,7 +301,7 @@
 
     .timeline-year {
         font-size: 1.25rem;
-        padding-right: 0.5rem;
+        padding-right: 2rem;
     }
 
     .timeline-card {

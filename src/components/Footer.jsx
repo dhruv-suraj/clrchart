@@ -70,18 +70,12 @@ const Footer = () => {
           <div className="footer-links">
             <div className="footer-column">
               <Link to="/about" className="footer-link">About us</Link>
-              <a href="#" className="footer-link">Our mission</a>
               <a href="#" className="footer-link">Team</a>
-              <a href="#" className="footer-link">Technology</a>
-              <a href="#" className="footer-link">Resources</a>
             </div>
 
             <div className="footer-column">
               <a href="#" className="footer-link">Blog</a>
               <a href="#" className="footer-link">Careers</a>
-              <a href="#" className="footer-link">Press</a>
-              <a href="#" className="footer-link">Help center</a>
-              <a href="#" className="footer-link">Community</a>
             </div>
           </div>
         </div>

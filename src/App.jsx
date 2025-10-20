@@ -1,7 +1,8 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Preloader from './components/Preloader';
 import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import Features from './pages/Features';
@@ -15,10 +16,24 @@ import './App.css';
 function App() {
   const location = useLocation();
   const hideNavbarFooter = location.pathname === '/login' || location.pathname === '/dashboard';
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
+  useEffect(() => {
+    // Show preloader for 2 seconds
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Preloader />;
+  }
 
   return (
     <div className="app">

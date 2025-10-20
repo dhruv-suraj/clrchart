@@ -116,7 +116,6 @@ const FeaturesInteractive = () => {
     return () => observer.disconnect();
   }, [statsAnimated]);
 
-  const [isScrollLocked, setIsScrollLocked] = useState(false);
   const [animationComplete, setAnimationComplete] = useState(false);
 
   const handleSliderDrag = (e) => {
@@ -155,22 +154,14 @@ const FeaturesInteractive = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !animationComplete) {
-          // Lock scroll
-          setIsScrollLocked(true);
-          document.body.style.overflow = 'hidden';
-
-          // Start animation after a brief delay
-          setTimeout(() => {
-            setSliderPosition(100);
-
-            // Unlock scroll after animation completes
-            setTimeout(() => {
-              setIsScrollLocked(false);
-              setAnimationComplete(true);
-              document.body.style.overflow = '';
-            }, 3500); // Match the animation duration (3.5 seconds)
-          }, 300);
+        if (entry.isIntersecting) {
+          // Scrolling down - animate to 100
+          setSliderPosition(100);
+          setAnimationComplete(true);
+        } else {
+          // Scrolling up/away - reset to 0
+          setSliderPosition(0);
+          setAnimationComplete(false);
         }
       },
       { threshold: 0.7 } // Trigger when 70% of the section is visible
@@ -277,7 +268,7 @@ const FeaturesInteractive = () => {
             className="comparison-side after"
             style={{
               clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
-              transition: comparisonAnimated ? 'none' : (!animationComplete ? 'clip-path 3.5s ease-in-out' : 'clip-path 0.3s ease-out')
+              transition: comparisonAnimated ? 'none' : 'clip-path 4s ease-in-out'
             }}
           >
             <div className="comparison-content">
@@ -291,25 +282,6 @@ const FeaturesInteractive = () => {
             </div>
           </div>
 
-          <div
-            className="slider-handle"
-            style={{
-              left: `${sliderPosition}%`,
-              transition: comparisonAnimated ? 'none' : (!animationComplete ? 'left 3.5s ease-in-out' : 'left 0.3s ease-out'),
-              cursor: animationComplete ? 'ew-resize' : 'default'
-            }}
-            onMouseDown={handleMouseDown}
-          >
-            <div className="handle-line"></div>
-            <div className="handle-circle">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-          </div>
         </div>
       </div>
 
