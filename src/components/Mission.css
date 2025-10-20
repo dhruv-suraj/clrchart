@@ -24,7 +24,7 @@
 .mission-title {
     font-size: 3.5rem;
     font-weight: 600;
-    color: #000;
+    color: #6B7A85;
     margin-bottom: 1.5rem;
     letter-spacing: -0.02em;
 }
@@ -48,7 +48,7 @@
 .link-story {
     font-size: 1rem;
     font-weight: 500;
-    color: #000;
+    color: #6B7A85;
     text-decoration: none;
     transition: all 0.3s ease;
 }

@@ -46,7 +46,7 @@ const FeaturesHero = () => {
 
       <div className="features-hero-container">
         <h1 className={`features-hero-title ${titleVisible ? 'visible' : ''}`}>
-          Medical records <span className="highlight-text">decoded</span>
+          <span className="highlight-text">Medical records</span> decoded
         </h1>
         <p className={`features-hero-subtitle ${titleVisible ? 'visible' : ''}`}>
           Cut through complexity and gain clarity about your health with intelligent, personalized medical insights

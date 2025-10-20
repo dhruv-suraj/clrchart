@@ -34,7 +34,7 @@
 .decode-label {
     font-size: 0.9rem;
     font-weight: 600;
-    color: #000;
+    color: #6B7A85;
     margin-bottom: 1.5rem;
     letter-spacing: 0.05em;
 }
@@ -42,7 +42,7 @@
 .decode-title {
     font-size: 3rem;
     font-weight: 600;
-    color: #000;
+    color: #6B7A85;
     margin-bottom: 1.5rem;
     line-height: 1.2;
     letter-spacing: -0.02em;
@@ -63,7 +63,7 @@
 
 .btn-decode {
     background: #FFFFFF;
-    color: #000;
+    color: #6B7A85;
     border: 2px solid #E0E0E0;
     padding: 0.9rem 2.2rem;
     border-radius: 30px;
@@ -74,7 +74,7 @@
 }
 
 .btn-decode:hover {
-    border-color: #000;
+    border-color: #6B7A85;
     transform: translateY(-2px);
 }
 
@@ -84,7 +84,7 @@
     gap: 0.5rem;
     font-size: 1rem;
     font-weight: 500;
-    color: #000;
+    color: #6B7A85;
     text-decoration: none;
     transition: gap 0.3s ease;
 }

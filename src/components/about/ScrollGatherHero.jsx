@@ -2,6 +2,12 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './ScrollGatherHero.css';
+import personIcon from '../../assets/File Icons /person.png';
+import textIcon from '../../assets/File Icons /text.png';
+import brainIcon from '../../assets/File Icons /brian.png';
+import imageIcon from '../../assets/File Icons /image.png';
+import ekgIcon from '../../assets/File Icons /ekg.png';
+import pillIcon from '../../assets/File Icons /pill.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,12 +19,12 @@ const ScrollGatherHero = () => {
 
   // Healthcare-related floating items
   const floatingItems = [
-    { text: 'Patient Care', position: { x: -35, y: -25 } },
-    { text: 'Medical Records', position: { x: 35, y: -25 } },
-    { text: 'Health Insights', position: { x: -45, y: 0 } },
-    { text: 'Diagnostics', position: { x: 45, y: 0 } },
-    { text: 'Analytics', position: { x: -35, y: 25 } },
-    { text: 'Reports', position: { x: 35, y: 25 } },
+    { text: 'Patient Care', position: { x: -35, y: -25 }, icon: personIcon },
+    { text: 'Medical Records', position: { x: 35, y: -25 }, icon: textIcon },
+    { text: 'Health Insights', position: { x: -45, y: 0 }, icon: brainIcon },
+    { text: 'Diagnostics', position: { x: 45, y: 0 }, icon: imageIcon },
+    { text: 'Analytics', position: { x: -35, y: 25 }, icon: ekgIcon },
+    { text: 'Reports', position: { x: 35, y: 25 }, icon: pillIcon },
   ];
 
   useEffect(() => {
@@ -125,7 +131,7 @@ const ScrollGatherHero = () => {
             <span>Our Mission</span>
           </div> */}
           <h1 className="main-title">
-            Decode your <span className="gradient-text">health</span>
+            <span className="gradient-text">Decode your</span> health
           </h1>
           <p className="main-subtitle">
             Transforming complex medical records into clear, actionable insights
@@ -144,29 +150,7 @@ const ScrollGatherHero = () => {
           >
             <div className="floating-item-inner">
               <div className="item-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M12 2L2 7L12 12L22 7L12 2Z"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M2 17L12 22L22 17"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M2 12L12 17L22 12"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <img src={item.icon} alt={item.text} />
               </div>
               <span className="item-text">{item.text}</span>
             </div>

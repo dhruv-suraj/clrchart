@@ -36,7 +36,7 @@
 .faq-title {
     font-size: 3.5rem;
     font-weight: 600;
-    color: #000;
+    color: #6B7A85;
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
 }
@@ -78,7 +78,7 @@
     border: none;
     font-size: 1.1rem;
     font-weight: 600;
-    color: #000;
+    color: #6B7A85;
     text-align: left;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -126,7 +126,7 @@
 .faq-footer-title {
     font-size: 2.5rem;
     font-weight: 600;
-    color: #000;
+    color: #6B7A85;
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
 }
@@ -139,7 +139,7 @@
 
 .btn-faq-contact {
     background: #FFFFFF;
-    color: #000;
+    color: #6B7A85;
     border: 2px solid #E0E0E0;
     padding: 1rem 2.5rem;
     border-radius: 30px;
@@ -150,7 +150,7 @@
 }
 
 .btn-faq-contact:hover {
-    border-color: #000;
+    border-color: #6B7A85;
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
