@@ -181,6 +181,8 @@
   flex-direction: column;
   padding: 2rem;
   overflow-y: auto;
+  justify-content: center;
+  padding-bottom: 8rem;
 }
 
 .chat-heading {
@@ -192,7 +194,6 @@
 }
 
 .chat-messages-area {
-  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -255,7 +256,19 @@
 }
 
 .chat-input-section {
-  margin-top: auto;
+  margin-top: 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.chat-greeting {
+  color: #2E3A59;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  width: 100%;
 }
 
 .chat-input-form {

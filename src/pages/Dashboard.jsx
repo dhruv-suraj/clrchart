@@ -108,8 +108,6 @@ const Dashboard = () => {
         </div>
 
         <div className="chat-content">
-          <h1 className="chat-heading">Ask Clari about your medical records</h1>
-
           <div className="chat-messages-area">
             {chatMessages.map((msg, index) => (
               <div key={index} className={`chat-message ${msg.sender}`}>
@@ -118,21 +116,16 @@ const Dashboard = () => {
                 </div>
               </div>
             ))}
-
-            <div className="suggested-action">
-              <button className="action-card">
-                Explain medication interactions
-              </button>
-            </div>
           </div>
 
           <div className="chat-input-section">
+            <div className="chat-greeting">Hey Dhruv</div>
             <form onSubmit={handleSendMessage} className="chat-input-form">
               <input
                 type="text"
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
-                placeholder="Type your question..."
+                placeholder="Ask Clari..."
                 className="chat-input"
               />
             </form>
