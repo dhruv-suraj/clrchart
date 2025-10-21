@@ -452,19 +452,75 @@
 @media (max-width: 968px) {
     .login-container {
         grid-template-columns: 1fr;
+        max-width: 100%;
     }
 
     .login-left {
         padding: 3rem 2rem;
-        min-height: 300px;
+        min-height: 250px;
     }
 
     .login-brand-title {
         font-size: 2rem;
     }
 
+    .login-brand-subtitle {
+        font-size: 1rem;
+    }
+
     .login-right {
         padding: 3rem 2rem;
+    }
+
+    .login-feature-item {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-page {
+        padding: 1.5rem;
+    }
+
+    .login-container {
+        border-radius: 25px;
+    }
+
+    .login-left {
+        padding: 2.5rem 2rem;
+        min-height: 220px;
+    }
+
+    .login-brand-title {
+        font-size: 1.75rem;
+    }
+
+    .login-brand-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+    }
+
+    .login-right {
+        padding: 2.5rem 2rem;
+    }
+
+    .login-form-title {
+        font-size: 1.75rem;
+    }
+
+    .login-logo {
+        width: 90px;
+        height: 90px;
+    }
+
+    .btn-google-login {
+        font-size: 0.95rem;
+        padding: 0.95rem 1.25rem;
+    }
+
+    .btn-submit {
+        font-size: 1rem;
+        padding: 0.95rem 1.25rem;
     }
 }
 
@@ -482,12 +538,156 @@
         padding: 2rem 1.5rem;
     }
 
-    .login-form-title {
-        font-size: 1.75rem;
+    .login-left {
+        min-height: 200px;
     }
 
     .login-logo {
         width: 80px;
         height: 80px;
+        margin-bottom: 1rem;
+    }
+
+    .login-brand-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .login-brand-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.75rem;
+    }
+
+    .login-features {
+        gap: 0.75rem;
+    }
+
+    .login-feature-item {
+        font-size: 0.875rem;
+    }
+
+    .login-form-title {
+        font-size: 1.5rem;
+    }
+
+    .login-form-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .btn-google-login {
+        font-size: 0.9rem;
+        padding: 0.875rem 1.25rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-group input {
+        padding: 0.85rem 1.1rem;
+        font-size: 0.95rem;
+    }
+
+    .btn-submit {
+        font-size: 0.95rem;
+        padding: 0.9rem 1.25rem;
+    }
+
+    .login-footer p {
+        font-size: 0.9rem;
+    }
+
+    .back-home {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .login-page {
+        padding: 0.75rem;
+    }
+
+    .login-container {
+        border-radius: 16px;
+    }
+
+    .login-left,
+    .login-right {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .login-left {
+        min-height: 180px;
+    }
+
+    .login-logo {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 0.875rem;
+    }
+
+    .login-brand-title {
+        font-size: 1.35rem;
+        margin-bottom: 0.65rem;
+    }
+
+    .login-brand-subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .login-features {
+        gap: 0.65rem;
+    }
+
+    .login-feature-item {
+        font-size: 0.8rem;
+    }
+
+    .feature-check {
+        width: 28px;
+        height: 28px;
+    }
+
+    .login-form-title {
+        font-size: 1.35rem;
+    }
+
+    .login-form-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .btn-google-login {
+        font-size: 0.85rem;
+        padding: 0.8rem 1.1rem;
+    }
+
+    .form-group label {
+        font-size: 0.85rem;
+    }
+
+    .form-group input {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .form-options {
+        font-size: 0.85rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .btn-submit {
+        font-size: 0.9rem;
+        padding: 0.85rem 1.1rem;
+    }
+
+    .login-footer p {
+        font-size: 0.85rem;
+    }
+
+    .back-home {
+        font-size: 0.85rem;
     }
 }

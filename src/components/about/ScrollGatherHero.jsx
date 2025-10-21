@@ -19,12 +19,12 @@ const ScrollGatherHero = () => {
 
   // Healthcare-related floating items
   const floatingItems = [
-    { text: 'Patient Care', position: { x: -35, y: -25 }, icon: personIcon },
-    { text: 'Medical Records', position: { x: 35, y: -25 }, icon: textIcon },
-    { text: 'Health Insights', position: { x: -45, y: 0 }, icon: brainIcon },
-    { text: 'Diagnostics', position: { x: 45, y: 0 }, icon: imageIcon },
-    { text: 'Analytics', position: { x: -35, y: 25 }, icon: ekgIcon },
-    { text: 'Reports', position: { x: 35, y: 25 }, icon: pillIcon },
+    { text: 'Patient Care', position: { x: -30, y: -25 }, icon: personIcon },
+    { text: 'Medical Records', position: { x: 30, y: -25 }, icon: textIcon },
+    { text: 'Health Insights', position: { x: -35, y: 0 }, icon: brainIcon },
+    { text: 'Diagnostics', position: { x: 35, y: 0 }, icon: imageIcon },
+    { text: 'Analytics', position: { x: -30, y: 25 }, icon: ekgIcon },
+    { text: 'Reports', position: { x: 30, y: 25 }, icon: pillIcon },
   ];
 
   useEffect(() => {

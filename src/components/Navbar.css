@@ -267,3 +267,63 @@
         margin-right: 0;
     }
 }
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.75rem 1rem;
+    }
+
+    .logo img,
+    .logo svg {
+        width: 50px;
+        height: 50px;
+    }
+
+    .btn-primary {
+        padding: 0.6rem 1.25rem;
+        font-size: 0.85rem;
+    }
+
+    .nav-right {
+        gap: 0.75rem;
+    }
+
+    .menu-btn {
+        padding: 0.25rem;
+    }
+
+    .menu-btn span {
+        width: 22px;
+        height: 2.5px;
+    }
+}
+
+@media (max-width: 375px) {
+    .navbar {
+        padding: 0.65rem 0.75rem;
+    }
+
+    .logo img,
+    .logo svg {
+        width: 45px;
+        height: 45px;
+    }
+
+    .btn-primary {
+        padding: 0.55rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .nav-right {
+        gap: 0.5rem;
+    }
+
+    .mobile-menu {
+        width: 220px;
+    }
+
+    .mobile-menu-item {
+        font-size: 1.1rem;
+        padding: 0.875rem;
+    }
+}

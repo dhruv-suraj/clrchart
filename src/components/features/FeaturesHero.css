@@ -1,9 +1,9 @@
 .features-hero {
-    padding: 10rem 3rem 8rem;
+    padding: 12rem 3rem 8rem;
     text-align: center;
     position: relative;
     overflow: hidden;
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -255,8 +255,8 @@
 
 @media (max-width: 768px) {
     .features-hero {
-        padding: 7rem 1.5rem 5rem;
-        min-height: 80vh;
+        padding: 8rem 1.5rem 5rem;
+        min-height: calc(100vh - 60px);
     }
 
     .features-hero-title {
@@ -280,6 +280,10 @@
 }
 
 @media (max-width: 480px) {
+    .features-hero {
+        padding: 6rem 1rem 4rem;
+    }
+
     .features-hero-title {
         font-size: 2.5rem;
     }
@@ -292,5 +296,31 @@
     .btn-features-secondary {
         padding: 1rem 2rem;
         font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .features-hero {
+        padding: 5.5rem 0.75rem 3.5rem;
+    }
+
+    .features-hero-title {
+        font-size: 2rem;
+        line-height: 1.15;
+    }
+
+    .features-hero-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .features-badge {
+        font-size: 0.8rem;
+        padding: 0.5rem 1.2rem;
+    }
+
+    .btn-features-primary,
+    .btn-features-secondary {
+        padding: 0.9rem 1.75rem;
+        font-size: 0.9rem;
     }
 }
