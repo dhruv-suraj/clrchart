@@ -13,7 +13,7 @@ const AboutImpact = () => {
     {
       category: 'Patients',
       title: 'Unlock your health story with confidence',
-      description: 'Navigate medical complexity with personalized understanding',
+      description: 'ClearChartAI empowers individuals to navigate their health journey with clarity and confidence. By simplifying medical jargon and connecting fragmented records, patients finally gain a complete, understandable view of their care.',
       link: 'Explore',
       gradient: 'linear-gradient(135deg, #5FA8A8 0%, #7DD3D3 100%)',
       icon: (
@@ -33,7 +33,7 @@ const AboutImpact = () => {
     {
       category: 'Providers',
       title: 'Elevate patient communication and engagement',
-      description: 'Reduce repetitive explanations and improve clinical interactions',
+      description: 'ClearChartAI streamlines communication and reduces the time clinicians spend re-explaining results or searching through records. With AI-powered summaries, providers can focus on meaningful interactions and better-informed decision-making.',
       link: 'Discover',
       gradient: 'linear-gradient(135deg, #5FA8A8 0%, #6BC2C2 100%)',
       icon: (
@@ -51,7 +51,7 @@ const AboutImpact = () => {
     {
       category: 'Insurers',
       title: 'Minimize healthcare costs through proactive literacy',
-      description: 'Prevent unnecessary treatments and reduce administrative overhead',
+      description: 'ClearChartAI helps payers identify unnecessary procedures and reduce administrative burden through transparent, data-driven literacy. By empowering members with clear information, insurers promote healthier outcomes and stronger trust.',
       link: 'Learn',
       gradient: 'linear-gradient(135deg, #7DD3D3 0%, #A0E8E8 100%)',
       icon: (

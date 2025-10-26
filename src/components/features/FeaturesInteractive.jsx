@@ -21,49 +21,34 @@ const FeaturesInteractive = () => {
   const features = [
     {
       tab: 0,
-      description: 'Bring your story together effortlessly. We handle record requests securely so you never have to chase them down',
-      details: ['Secure Access', 'Fast Retrieval', 'Zero Hassle']
+      description: 'Bring your story together effortlessly',
+      details: ['ClearChartAI securely retrieves your medical records, no forms, no chasing, no stress. Your information flows directly from hospitals, clinics, and labs into one clear, verified timeline.']
     },
     {
       tab: 0,
-      description: 'Your records flow directly from hospitals, clinics, and labs into one clear timeline.',
-      details: ['Unified Records', 'Verified Sources', 'Real-Time Updates']
-    },
-    {
-      tab: 0,
-      description: 'Every document is organized automatically, ready for you to view anytime.',
-      details: ['Smart Sorting', 'Instant Access', 'Peace of Mind']
+      description: 'Secure Access · Fast Retrieval · Zero Hassle',
+      details: ['Every record is automatically organized and verified at the source, updating in real time so you can view your complete health story anytime, with clarity, confidence, and peace of mind.']
     },
     {
       tab: 1,
-      description: 'Clari translates complex medical language into plain, easy-to-read summaries.',
-      details: ['Plain Language', 'Accurate Translation', 'Easy Clarity']
+      description: 'Decode your health with clarity',
+      details: ['Clari transforms complex medical language into simple, easy-to-read summaries that highlight what truly matters. See your key findings, diagnoses, and trends, all in one clear, visual view']
     },
     {
       tab: 1,
-      description: 'Key findings and diagnoses are highlighted so you know what truly matters.',
-      details: ['HIghlights', 'Insights', 'Understanding']
-    },
-    {
-      tab: 1,
-      description: 'View trends across visits, labs, and imaging to see the bigger health picture.',
-      details: ['Trend Mapping', 'Data Visualization', 'Clarity Over Time']
+      description: 'Plain Language · Accurate Translation · Easy Clarity',
+      details: ['Track your health over time through intuitive visuals and trend mapping that turn data into understanding, so you can see the bigger picture behind every visit, lab, and result.']
     },
     {
       tab: 2,
-      description: 'Understand, ask, and act with confidence. Use your insights to prepare smarter questions before every appointment.',
-      details: ['Confidence', 'Preparation', 'Connection']
+      description: 'Empower your next step',
+      details: ['Understand, ask, and act with confidence. Clari helps you use your health insights to prepare smarter questions, track progress, and stay proactive about your care.']
     },
     {
       tab: 2,
-      description: 'Track your progress and symptoms to stay proactive about your care.',
-      details: ['Progress Tracking', 'Self Awareness', 'Engagement']
+      description: 'Confidence · Preparation · Connection',
+      details: ['Receive new insights automatically as fresh records arrive, keeping you engaged, informed, and in control of your health journey through continuous updates and personalized guidance.']
     },
-    {
-      tab: 2,
-      description: 'Receive new insights automatically as fresh records arrive.',
-      details: ['Continuous Updates', 'Proactive Guidance', 'Personalized Care']
-    }
   ];
 
   const stats = [
@@ -232,9 +217,6 @@ const FeaturesInteractive = () => {
             <ul className="card-details">
               {feature.details.map((detail, idx) => (
                 <li key={idx}>
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M13 4L6 11L3 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
                   {detail}
                 </li>
               ))}

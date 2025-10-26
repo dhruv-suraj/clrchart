@@ -10,7 +10,6 @@ import AboutPartners from '../components/about/AboutPartners';
 import AboutImpact from '../components/about/AboutImpact';
 import AboutFAQ from '../components/about/AboutFAQ';
 import FeaturesInteractive from '../components/features/FeaturesInteractive';
-import FeaturesClari from '../components/features/FeaturesClari';
 import FeaturesDetailed from '../components/features/FeaturesDetailed';
 import FeaturesTestimonials from '../components/features/FeaturesTestimonials';
 
@@ -25,11 +24,10 @@ const Home = () => {
       <AboutTeam />
       <AboutPartners />
       <AboutImpact />
-      <AboutFAQ />
       <FeaturesInteractive />
-      <FeaturesClari />
       <FeaturesDetailed />
       <FeaturesTestimonials />
+      <AboutFAQ />
       <CTA />
     </>
   );

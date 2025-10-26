@@ -1,6 +1,11 @@
 .about-team {
     padding: 8rem 3rem 6rem;
-    background: linear-gradient(135deg, #F5F9F9 0%, #E8F3F3 100%);
+    background-image: linear-gradient(135deg, rgba(245, 249, 249, 0.3) 0%, rgba(232, 243, 243, 0.3) 100%),
+                      url('../../assets/team-background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
 }
