@@ -180,7 +180,7 @@ const FeaturesInteractive = () => {
   const currentFeatures = features.filter(f => f.tab === activeTab);
 
   return (
-    <section className="features-interactive" ref={sectionRef}>
+    <section className="features-interactive" ref={sectionRef} id="features-section">
       {/* Animated Background Elements */}
       <div className="interactive-background">
         <div className="floating-orb orb-1"></div>
@@ -243,47 +243,6 @@ const FeaturesInteractive = () => {
         ))}
       </div>
 
-      {/* Interactive Comparison Slider */}
-      <div className="comparison-section" ref={comparisonRef}>
-        <h3 className="comparison-title">See the difference</h3>
-        <p className="comparison-subtitle">Before and after using ClearChartAI</p>
-
-        <div
-          className="comparison-slider"
-          onClick={handleSliderDrag}
-        >
-          <div className="comparison-side before">
-            <div className="comparison-content">
-              <h4>Before</h4>
-              <ul>
-                <li>Scattered medical records</li>
-                <li>Confusing medical jargon</li>
-                <li>Manual data tracking</li>
-                <li>Limited health insights</li>
-              </ul>
-            </div>
-          </div>
-
-          <div
-            className="comparison-side after"
-            style={{
-              clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
-              transition: comparisonAnimated ? 'none' : 'clip-path 4s ease-in-out'
-            }}
-          >
-            <div className="comparison-content">
-              <h4>After</h4>
-              <ul>
-                <li><strong>Unified health dashboard</strong></li>
-                <li><strong>Plain language explanations</strong></li>
-                <li><strong>Automated data integration</strong></li>
-                <li><strong>AI-powered insights</strong></li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-      </div>
 
     </section>
   );

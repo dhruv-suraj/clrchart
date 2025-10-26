@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../assets/Purple Cush.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +26,26 @@ const Navbar = () => {
     setIsMenuOpen(false);
   };
 
+  const scrollToTop = () => {
+    closeMenu();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const scrollToSection = (sectionId) => {
+    closeMenu();
+
+    // If not on homepage, navigate to homepage first
+    if (location.pathname !== '/') {
+      window.location.href = `/#${sectionId}`;
+    } else {
+      // If on homepage, scroll to section
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-left">
@@ -34,9 +55,9 @@ const Navbar = () => {
       </div>
       <div className="nav-center">
         <div className="nav-links-container">
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/features">Features</Link>
+          <button onClick={scrollToTop} className="nav-button">Home</button>
+          <button onClick={() => scrollToSection('about-section')} className="nav-button">About</button>
+          <button onClick={() => scrollToSection('features-section')} className="nav-button">Features</button>
           <Link to="/blog">Blog</Link>
           <Link to="/contact">Contact</Link>
         </div>
@@ -56,9 +77,9 @@ const Navbar = () => {
       </div>
 
       <div className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
-        <Link to="/" className="mobile-menu-item" onClick={closeMenu}>Home</Link>
-        <Link to="/about" className="mobile-menu-item" onClick={closeMenu}>About</Link>
-        <Link to="/features" className="mobile-menu-item" onClick={closeMenu}>Features</Link>
+        <button onClick={scrollToTop} className="mobile-menu-item" style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', width: '100%' }}>Home</button>
+        <button onClick={() => scrollToSection('about-section')} className="mobile-menu-item" style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', width: '100%' }}>About</button>
+        <button onClick={() => scrollToSection('features-section')} className="mobile-menu-item" style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', width: '100%' }}>Features</button>
         <Link to="/blog" className="mobile-menu-item" onClick={closeMenu}>Blog</Link>
         <Link to="/contact" className="mobile-menu-item" onClick={closeMenu}>Contact</Link>
       </div>

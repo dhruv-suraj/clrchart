@@ -69,7 +69,7 @@ const Features = () => {
   return (
     <section className="features-section" ref={sectionRef}>
       <div className="features-header fade-in-up" ref={headerRef}>
-        <h2 className="features-title">Medical records made simple</h2>
+        <h2 className="features-title">Ask Clari: Your Personal AI-Powered Medical Assistant </h2>
         <p className="features-subtitle">Decode complex medical information with AI-powered insights</p>
       </div>
 

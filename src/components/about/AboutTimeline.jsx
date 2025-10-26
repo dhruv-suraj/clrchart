@@ -40,7 +40,7 @@ const AboutTimeline = () => {
   const currentData = timelineData[activeYear];
 
   return (
-    <section className="about-timeline">
+    <section className="about-timeline" id="about-section">
       <div className="timeline-header fade-in-up" ref={headerRef}>
         <div className="timeline-years-horizontal">
           {years.map((year) => (
