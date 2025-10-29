@@ -68,43 +68,14 @@ const AboutImpact = () => {
 
   useEffect(() => {
     const timeline = timelineRef.current;
-    const progressLine = progressLineRef.current;
     const items = timeline.querySelectorAll('.timeline-item');
 
-    // Animate progress line based on scroll
-    gsap.to(progressLine, {
-      height: '100%',
-      ease: 'none',
-      scrollTrigger: {
-        trigger: timeline,
-        start: 'top center',
-        end: 'bottom center',
-        scrub: 1,
-      },
-    });
-
-    // Animate each timeline item
+    // Set all items to fully visible without animations
     items.forEach((item) => {
       const year = item.querySelector('.timeline-year');
       const card = item.querySelector('.timeline-card');
-
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: item,
-          start: 'top 75%',
-          end: 'top 25%',
-          toggleActions: 'play none none reverse',
-        },
-      })
-      .fromTo(year,
-        { opacity: 0, x: -50 },
-        { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out' }
-      )
-      .fromTo(card,
-        { opacity: 0, x: 50 },
-        { opacity: 1, x: 0, duration: 0.8, ease: 'power2.out' },
-        '-=0.3'
-      );
+      if (year) gsap.set(year, { opacity: 1, x: 0 });
+      if (card) gsap.set(card, { opacity: 1, x: 0 });
     });
 
     return () => {

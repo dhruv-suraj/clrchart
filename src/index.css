@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -19,6 +21,43 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Proxima Nova Font for Headers */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+h6 {
+  font-weight: 500;
+  font-size: 1rem;
 }
 
 /* Scroll-triggered animation utilities */

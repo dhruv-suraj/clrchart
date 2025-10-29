@@ -1,8 +1,25 @@
 import React from 'react';
 import './Mission.css';
-import missionImage from '../assets/ChatGPT Image Oct 4, 2025, 04_37_47 PM.png';
 
 const Mission = () => {
+  const teamMembers = [
+    {
+      name: 'Nicholas Davis',
+      role: 'Founder & CEO, AGACNP, BSN',
+      image: 'https://via.placeholder.com/200?text=Nicholas+Davis'
+    },
+    {
+      name: 'Dhruv Suraj',
+      role: 'Responsible for the entire tech stack, ensuring the platform is powerful, intuitive, and reliable for all users.',
+      image: 'https://via.placeholder.com/200?text=Dhruv+Suraj'
+    },
+    {
+      name: 'Vishnu Koraganji',
+      role: 'Sr Full-Stack AI Engineer',
+      image: 'https://via.placeholder.com/200?text=Vishnu+Koraganji'
+    }
+  ];
+
   return (
     <section className="mission-section">
       <div className="mission-container">
@@ -19,11 +36,16 @@ const Mission = () => {
           </div>
         </div>
 
-        <div className="mission-image">
-          <img
-            src={missionImage}
-            alt="Doctor consulting with patient"
-          />
+        <div className="mission-cards">
+          {teamMembers.map((member, index) => (
+            <div key={index} className={`mission-card ${member.highlight ? 'highlight' : ''}`}>
+              <div className="mission-card-image">
+                <img src={member.image} alt={member.name} />
+              </div>
+              <h3 className="mission-card-name">{member.name}</h3>
+              <p className="mission-card-role">{member.role}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
